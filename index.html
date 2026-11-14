@@ -1,18 +1,185 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>toshiakinakano1965</title>
-  <link rel="stylesheet" href="morning-dashboard/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>中野年章 | 自己紹介</title>
+<meta name="description" content="中野年章（なかの としあき）の自己紹介ページ。経歴・職歴・趣味（テナーサックス、ゴルフ、セーリングなど）">
+<style>
+:root{--ink:#1f2430;--sub:#5b6474;--line:#e3e6ec;--bg:#f7f6f2;--card:#fff;--accent:#b5832e;--accent2:#1e4e79}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;color:var(--ink);background:var(--bg);line-height:1.8;-webkit-text-size-adjust:100%}
+a{color:var(--accent2)}
+.hero{background:linear-gradient(135deg,#14243a 0%,#1e4e79 60%,#2f6a8f 100%);color:#fff;padding:56px 20px 48px;text-align:center;position:relative;overflow:hidden}
+.hero:after{content:"♪ ♫ ♪";position:absolute;right:-10px;bottom:-24px;font-size:120px;opacity:.07;letter-spacing:10px}
+.avatar{width:96px;height:96px;border-radius:50%;margin:0 auto 16px;background:#fff;color:var(--accent2);display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:700;box-shadow:0 4px 18px rgba(0,0,0,.25)}
+.hero h1{margin:0;font-size:32px;letter-spacing:.12em}
+.hero .kana{margin:2px 0 10px;font-size:14px;opacity:.85;letter-spacing:.2em}
+.hero .tag{display:inline-block;margin:4px;padding:4px 12px;border:1px solid rgba(255,255,255,.5);border-radius:999px;font-size:13px}
+nav{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);display:flex;justify-content:center;gap:4px;flex-wrap:wrap;padding:6px}
+nav a{text-decoration:none;color:var(--ink);font-size:14px;padding:6px 12px;border-radius:8px}
+nav a:hover{background:#eef2f7}
+main{max-width:860px;margin:0 auto;padding:12px 16px 40px}
+section{margin-top:32px}
+h2{font-size:22px;margin:0 0 14px;padding-left:12px;border-left:5px solid var(--accent)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.lead{font-size:16px}
+dl.prof{display:grid;grid-template-columns:7em 1fr;gap:6px 12px;margin:0}
+dl.prof dt{color:var(--sub);font-size:14px}
+dl.prof dd{margin:0}
+.timeline{list-style:none;margin:0;padding:0;position:relative}
+.timeline:before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.timeline li{position:relative;padding:0 0 18px 30px}
+.timeline li:before{content:"";position:absolute;left:0;top:7px;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--accent2)}
+.timeline li.now:before{background:var(--accent);border-color:var(--accent)}
+.timeline .when{font-size:13px;color:var(--sub);font-weight:600}
+.timeline .what{font-weight:700}
+.timeline .desc{font-size:14px;color:var(--sub);margin-top:2px}
+.co{margin:22px 0 10px;font-size:17px;color:var(--accent2);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chip{background:#eef2f7;color:var(--accent2);border-radius:999px;padding:4px 12px;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.hobby .icon{font-size:30px;line-height:1}
+.hobby h3{margin:8px 0 6px;font-size:17px}
+.hobby p{margin:0;font-size:14px;color:var(--sub)}
+.hobby ul{margin:6px 0 0;padding-left:1.2em;font-size:14px;color:var(--sub)}
+table.edu{width:100%;border-collapse:collapse;font-size:15px}
+table.edu td{padding:8px 4px;border-bottom:1px solid var(--line)}
+table.edu td:first-child{color:var(--sub);white-space:nowrap;width:8.5em}
+footer{text-align:center;color:var(--sub);font-size:13px;padding:24px 16px 40px;border-top:1px solid var(--line);margin-top:40px}
+footer a{margin:0 8px}
+@media (max-width:560px){.hero h1{font-size:26px}dl.prof{grid-template-columns:5.5em 1fr}}
+</style>
 </head>
 <body>
+
+<header class="hero">
+  <div class="avatar">中</div>
+  <h1>中野 年章</h1>
+  <div class="kana">NAKANO TOSHIAKI</div>
+  <div>
+    <span class="tag">新規事業開発</span>
+    <span class="tag">オープンイノベーション</span>
+    <span class="tag">テナーサックス</span>
+    <span class="tag">ゴルフ</span>
+  </div>
+</header>
+
+<nav>
+  <a href="#about">プロフィール</a>
+  <a href="#career">職歴</a>
+  <a href="#edu">学歴</a>
+  <a href="#hobby">趣味</a>
+</nav>
+
 <main>
-  <h1>toshiakinakano1965</h1>
-  <p>個人で作っているアプリの説明を置いています。</p>
-  <ul>
-    <li><a href="morning-dashboard/">朝のダッシュボード</a></li>
-  </ul>
+
+<section id="about">
+  <h2>プロフィール</h2>
+  <div class="card">
+    <p class="lead">はじめまして、中野年章です。静岡県浜松市で生まれ育ち、いまは横浜市に住んでいます。パイオニアで28年、カーナビや地図サービス「MapFan」の企画・開発に携わり、2015年からはヤンマーで新規事業づくりとオープンイノベーションに取り組んでいます。週末はテナーサックスを吹いたり、ゴルフに出かけたりしています。</p>
+    <dl class="prof">
+      <dt>出身</dt><dd>静岡県浜松市（1965年生まれ）</dd>
+      <dt>住まい</dt><dd>神奈川県横浜市</dd>
+      <dt>仕事</dt><dd>ヤンマーホールディングス 技術本部 共創推進室 室長</dd>
+      <dt>専門</dt><dd>事業開発・商品企画、IoT／M2M、デジタル地図、CVC運営</dd>
+      <dt>資格</dt><dd>TOEIC 795点</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="career">
+  <h2>職歴</h2>
+  <div class="card">
+    <div class="co" style="margin-top:0">ヤンマーホールディングス（2015年〜）</div>
+    <ul class="timeline">
+      <li class="now"><div class="when">2022年7月〜現在</div><div class="what">技術本部 共創推進室 室長</div><div class="desc">大企業・スタートアップ・自治体との共創による新規事業開発。環境省「脱炭素先行地域」に米原市・滋賀県とともに採択され、再生可能エネルギー事業やソーラーシェアリング（営農型太陽光発電）に取り組んでいます。</div></li>
+      <li><div class="when">2021年6月〜2022年3月</div><div class="what">ヤンマーベンチャーズ 取締役／パートナー（兼務）</div><div class="desc">コーポレートベンチャーキャピタルとしてスタートアップへ投資し、社内部門との事業開発を推進。</div></li>
+      <li><div class="when">2019年9月〜2022年6月</div><div class="what">技術本部 イノベーションセンター 部長</div><div class="desc">農業・建設・マリン領域のDX新規事業。建機・農機シェアリング、AI/IoTグリーンハウス、資源循環ビジネスなど8プロジェクトを統括。</div></li>
+      <li><div class="when">2018年1月〜2019年8月</div><div class="what">社長室 コネクティッドビジネス室 室長</div><div class="desc">トルコ・インドネシア・ブラジル・インド・日本で、建設機械シェアリングなど5つの「コト売り」新規事業を実証からテストマーケティングまで推進。</div></li>
+      <li><div class="when">2017年4月〜12月</div><div class="what">事業創出部 企画グループ 課長</div><div class="desc">リーンスタートアップ／デザインシンキングを取り入れた新規事業プロセスを構築。シリコンバレーのスタートアップ GetMyBoat への投資。</div></li>
+      <li><div class="when">2015年4月〜2017年3月</div><div class="what">中央研究所・技術戦略部 主幹研究員</div><div class="desc">IoT技術戦略、コネクティッドビジネスの事業戦略を立案。</div></li>
+    </ul>
+
+    <div class="co">パイオニア（1987年〜2015年）</div>
+    <ul class="timeline">
+      <li><div class="when">2008年4月〜2015年3月</div><div class="what">情報システムプラットフォームセンター 企画部長／ナビポータル 取締役</div><div class="desc">カーナビ向けIoTシステムの商品企画。「プローブ交通情報」「コンテンツ配信」が国内主要自動車メーカーのテレマティクスに採用。「スマートループ」で市販カーナビのシェアNo.1に貢献。</div></li>
+      <li><div class="when">1996年4月〜2008年3月</div><div class="what">インクリメントP 企画部長</div><div class="desc">地図サービス「MapFan」の商品企画・開発を統括し、PC・携帯・スマートフォン向け地図サービスで業界トップシェアに。</div></li>
+      <li><div class="when">1987年4月〜1996年4月</div><div class="what">技術研究所 ソフトウェアエンジニア</div><div class="desc">AV製品向けIC設計、PC製品の組込みソフト開発、インターネットサービスのシステム構築。</div></li>
+    </ul>
+
+    <div class="chips">
+      <span class="chip">事業開発・商品企画</span><span class="chip">オープンイノベーション／CVC</span><span class="chip">IoT・M2M</span><span class="chip">デジタル地図・カーナビ</span><span class="chip">プロジェクトマネジメント</span><span class="chip">法人営業</span>
+    </div>
+  </div>
+</section>
+
+<section id="edu">
+  <h2>学歴</h2>
+  <div class="card">
+    <table class="edu">
+      <tr><td>1983〜1987年</td><td>電気通信大学 通信工学部（東京都調布市）</td></tr>
+      <tr><td>1980〜1983年</td><td>静岡県立浜松西高等学校</td></tr>
+      <tr><td>1977〜1980年</td><td>浜松市立北星中学校</td></tr>
+      <tr><td>1971〜1977年</td><td>浜松市立葵ヶ丘小学校</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="hobby">
+  <h2>趣味</h2>
+  <div class="grid">
+    <div class="card hobby">
+      <div class="icon">🎷</div>
+      <h3>テナーサックス</h3>
+      <p>大学1年でアルトから始め、テナーに転向して40年あまり。ビッグバンド <strong>SingJokers</strong> に所属し、毎週日曜夜に練習しています。ヨコハマ・ジャズ・プロムナードにも出演。</p>
+      <ul><li>Selmer SA80 Series II（1988年〜）</li><li>Eastman ETS852NL（2026年〜）</li><li>Otto Link STM 7 ／ Guardala MB II</li></ul>
+    </div>
+    <div class="card hobby">
+      <div class="icon">🎸</div>
+      <h3>ギター</h3>
+      <p>エレキもアコースティックも弾きます。</p>
+      <ul><li>Gibson 1960 Les Paul Standard VOS</li><li>Fender American Professional II Stratocaster</li><li>ヤマハのアコギ、ガットギター</li></ul>
+    </div>
+    <div class="card hobby">
+      <div class="icon">⛳</div>
+      <h3>ゴルフ</h3>
+      <p>お気に入りは三島カントリークラブ。1人予約でもよく回ります。仲間とのラウンド後の一杯も楽しみのひとつ。派手めのゴルフウェア（Loudmouth など）が好きです。</p>
+    </div>
+    <div class="card hobby">
+      <div class="icon">⛵</div>
+      <h3>セーリング</h3>
+      <p>相模湾や琵琶湖でヨットに乗ってきました。佐島マリーナのレンタルヨット会員です。</p>
+    </div>
+    <div class="card hobby">
+      <div class="icon">🏋️</div>
+      <h3>フィットネス</h3>
+      <p>週に数回ジムで汗を流しています。</p>
+    </div>
+    <div class="card hobby">
+      <div class="icon">🏔️</div>
+      <h3>登山・ハイキング</h3>
+      <p>上高地や山梨方面の山歩き。</p>
+    </div>
+    <div class="card hobby">
+      <div class="icon">🚗</div>
+      <h3>クルマ・ドライブ</h3>
+      <p>アウディ A4 アバントとマツダ CX-5 で家族旅行やロングドライブへ。</p>
+    </div>
+    <div class="card hobby">
+      <div class="icon">🌿</div>
+      <h3>フレグランス</h3>
+      <p>香水を集めるのが密かな楽しみです。</p>
+    </div>
+  </div>
+</section>
+
 </main>
+
+<footer>
+  <div><a href="morning-dashboard/">Morning Dashboard</a></div>
+  <div style="margin-top:8px">© 2026 Nakano Toshiaki</div>
+</footer>
+
 </body>
 </html>
