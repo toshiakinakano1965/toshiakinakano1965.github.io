@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>好奇心の地図 ― 中野年章の仕事と講演</title>
+<meta name="description" content="中野年章の職務経歴と講演・寄稿の実績。営農型太陽光発電（ソーラーシェアリング）、地域の脱炭素、大企業の新規事業開発をテーマにお話しします。">
+<meta property="og:title" content="好奇心の地図 ― 中野年章の仕事と講演">
+<meta property="og:image" content="https://toshiakinakano1965.github.io/talk-booth.jpg">
+<style>
+:root{
+  --paper:#f6f2ea;--ink:#23262d;--sub:#6b6a66;--line:#ddd5c6;
+  --navy:#16263b;--brass:#b08a3e;--sea:#2f5d7c;--leaf:#4f7a4a;
+  --serif:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP",serif;
+  --sans:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:2;letter-spacing:.03em;-webkit-text-size-adjust:100%}
+img{max-width:100%;display:block}
+a{color:var(--sea)}
+
+.topbar{position:sticky;top:0;z-index:5;background:rgba(246,242,234,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);font-family:var(--sans);font-size:13px;display:flex;gap:4px;align-items:center;padding:6px 12px;overflow-x:auto;white-space:nowrap}
+.topbar a{text-decoration:none;color:var(--ink);padding:6px 10px;border-radius:8px}
+.topbar a.home{color:var(--brass);font-weight:600}
+.topbar a:hover{background:#ece5d6}
+
+/* hero */
+.hero{background:var(--navy);color:#f3eee4}
+.hero .in{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;align-items:end}
+.hero .txt{padding:56px 28px 48px}
+.hero .chap{font-family:var(--sans);font-size:12px;letter-spacing:.4em;color:#d8b56a}
+.hero h1{font-weight:600;font-size:clamp(30px,6vw,46px);line-height:1.45;margin:10px 0 6px;letter-spacing:.08em}
+.hero .sub{font-size:clamp(15px,3.6vw,19px);opacity:.9;margin:0 0 26px}
+.hero .lead{font-size:15px;line-height:2.05;opacity:.92;margin:0}
+.hero .role{margin-top:26px;font-family:var(--sans);font-size:12.5px;line-height:1.8;opacity:.85}
+.hero .role b{display:block;font-size:17px;letter-spacing:.2em;font-family:var(--serif);opacity:1;margin-bottom:4px}
+.hero .ph img{width:100%;height:100%;max-height:640px;object-fit:cover;object-position:50% 20%}
+
+main{max-width:760px;margin:0 auto;padding:0 22px}
+section{padding:68px 0 0}
+.chap{font-family:var(--sans);font-size:12px;letter-spacing:.4em;color:var(--brass)}
+h2{font-weight:600;font-size:clamp(22px,5.2vw,29px);line-height:1.6;margin:6px 0 24px;letter-spacing:.05em}
+h3{font-size:17px;margin:0 0 6px;letter-spacing:.05em}
+p{margin:0 0 1.2em}
+.small{font-family:var(--sans);font-size:13px;color:var(--sub);line-height:1.8}
+
+/* themes */
+.themes{display:grid;gap:14px}
+.theme{background:#fff;border:1px solid var(--line);border-left:5px solid var(--leaf);border-radius:12px;padding:18px 20px 16px}
+.theme:nth-child(2){border-left-color:var(--brass)}
+.theme:nth-child(3){border-left-color:var(--sea)}
+.theme .no{font-family:var(--sans);font-size:11px;letter-spacing:.3em;color:var(--sub)}
+.theme p{font-size:14.5px;line-height:1.95;margin:6px 0 10px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.tags li{font-family:var(--sans);font-size:12px;background:#f1ece2;border-radius:999px;padding:3px 10px;color:#4a4a46}
+
+/* talks */
+.talks{list-style:none;margin:0;padding:0}
+.talks li{display:grid;grid-template-columns:6.4em 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--line)}
+.talks .d{font-family:var(--sans);font-size:13px;color:var(--sea);font-weight:600;line-height:1.6}
+.talks .d small{display:inline-block;margin-top:4px;font-weight:400;font-size:11px;background:var(--brass);color:#fff;border-radius:4px;padding:1px 6px}
+.talks .ev{font-family:var(--sans);font-size:12.5px;color:var(--sub);line-height:1.7}
+.talks .tt{font-size:15.5px;line-height:1.75;margin:2px 0}
+.talks .nt{font-family:var(--sans);font-size:12px;color:var(--sub);line-height:1.7}
+.talks a{text-decoration:none}
+.photo2{max-width:354px;margin:28px auto 8px}
+.photo2 img{width:100%;height:auto;border-radius:12px}
+.photo2 figcaption{font-family:var(--sans);font-size:12px;color:var(--sub);padding:8px 2px 0;text-align:center}
+figure{margin:0}
+
+/* now */
+.now{display:grid;gap:12px}
+.now div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.now .y{font-family:var(--sans);font-size:12px;color:var(--leaf);font-weight:600;letter-spacing:.1em}
+.now p{font-size:14.5px;line-height:1.9;margin:4px 0 0}
+
+/* eras */
+.era{position:relative;padding:0 0 30px 26px;border-left:2px solid var(--line);margin-left:6px}
+.era:before{content:"";position:absolute;left:-8px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--brass)}
+.era .yr{font-family:var(--sans);font-size:12px;color:var(--sub);letter-spacing:.15em}
+.era h3{font-size:19px;margin:2px 0 10px}
+.era p{font-size:15px}
+.era ul{margin:0;padding-left:1.1em;font-family:var(--sans);font-size:13.5px;line-height:1.85;color:#3d3f44}
+.era ul li{margin-bottom:4px}
+.nums{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 4px}
+.nums div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-family:var(--sans);font-size:11.5px;color:var(--sub);line-height:1.4}
+.nums b{display:block;font-family:var(--serif);font-size:20px;color:var(--ink);letter-spacing:.02em}
+
+/* skills */
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.skills div{border-top:2px solid var(--ink);padding-top:10px}
+.skills h3{font-size:15px}
+.skills p{font-family:var(--sans);font-size:13px;line-height:1.8;color:#3d3f44;margin:0}
+
+/* contact */
+.contact{background:var(--navy);color:#f1ece2;border-radius:16px;padding:30px 24px 24px;margin-top:8px}
+.contact .chap{color:#d8b56a}
+.contact h2{color:#fff;margin-bottom:14px}
+.contact p{font-size:15px}
+.btn{display:inline-block;background:#0a66c2;color:#fff;text-decoration:none;font-family:var(--sans);font-weight:600;font-size:15px;padding:12px 22px;border-radius:999px;margin:6px 0 14px}
+.contact .small{color:#c9c3b6}
+
+footer{text-align:center;font-family:var(--sans);font-size:12px;color:var(--sub);padding:56px 20px 44px;line-height:1.9}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .9s ease,transform .9s ease}
+.rv.on{opacity:1;transform:none}
+
+@media (max-width:680px){
+  .hero .in{grid-template-columns:1fr}
+  .hero .ph{order:-1}
+  .hero .ph img{max-height:420px}
+  .hero .txt{padding:34px 22px 40px}
+  .skills{grid-template-columns:1fr}
+  .talks li{grid-template-columns:5.4em 1fr;gap:10px}
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <a class="home" href="./">← 中野年章</a>
+  <a href="#themes">テーマ</a>
+  <a href="#talks">講演実績</a>
+  <a href="#now">最近の仕事</a>
+  <a href="#career">経歴</a>
+  <a href="#contact">ご依頼</a>
+</nav>
+
+<header class="hero">
+  <div class="in">
+    <div class="txt">
+      <div class="chap">CAREER &amp; TALKS</div>
+      <h1>好奇心の地図</h1>
+      <p class="sub">― つなぐ仕事の、四十年 ―</p>
+      <p class="lead">地図をつくり、クルマをつなぎ、いまは農地の上に電気と未来をつくっている。分野は変わっても、やってきたことはひとつだった。違うものどうしをつないで、まだ誰も見たことのない景色をつくること。</p>
+      <div class="role"><b>中野 年章</b>ヤンマーホールディングス株式会社<br>ヤンマー・サステナブル・ファーム ネットワークマネジメントオフィス 部長<br>ヤンマーセーブザファームズ滋賀合同会社／岡山合同会社 代表</div>
+    </div>
+    <div class="ph"><img src="talk-booth.jpg" alt="農業WEEKのヤンマーブース前に立つ中野年章"></div>
+  </div>
+</header>
+
+<main>
+
+<section id="themes" class="rv">
+  <div class="chap">THEMES</div>
+  <h2>お話しできるテーマ</h2>
+  <div class="themes">
+    <div class="theme">
+      <div class="no">THEME 01</div>
+      <h3>営農型太陽光発電と、農地の未来</h3>
+      <p>農地の上で発電し、その収益で農業を続ける。ソーラーシェアリングを、制度の話だけでなく、事業として成り立たせる現場の視点からお話しします。資産保有型のビジネスモデル、環境再生型農業との組み合わせ、自治体や地域農家との合意形成まで。</p>
+      <ul class="tags"><li>ソーラーシェアリング</li><li>環境再生型農業</li><li>耕作放棄地対策</li><li>農山漁村再エネ法</li><li>カーボンクレジット</li></ul>
+    </div>
+    <div class="theme">
+      <div class="no">THEME 02</div>
+      <h3>地域の脱炭素と、官民の共創</h3>
+      <p>環境省「脱炭素先行地域」への米原市・滋賀県との共同提案、袋井市との連携協定など、自治体と企業が一緒に地域をつくる仕組みについて。計画づくりから事業会社の設立、運営までの実際をお伝えします。</p>
+      <ul class="tags"><li>脱炭素先行地域</li><li>自治体連携</li><li>再生可能エネルギー</li><li>地域活性化</li></ul>
+    </div>
+    <div class="theme">
+      <div class="no">THEME 03</div>
+      <h3>大企業から、新しい事業をつくる</h3>
+      <p>パイオニアとヤンマーで、数多くの新規事業を立ち上げてきました。リーンスタートアップやデザイン思考を大企業の中でどう回すか、CVCとスタートアップ投資、海外での事業実証。うまくいったことも、いかなかったことも、正直にお話しします。</p>
+      <ul class="tags"><li>新規事業開発</li><li>オープンイノベーション</li><li>CVC</li><li>IoT・コネクティッド</li><li>モビリティ・地図</li></ul>
+    </div>
+  </div>
+</section>
+
+<section id="talks" class="rv">
+  <div class="chap">TALKS</div>
+  <h2>主な講演・登壇</h2>
+  <ul class="talks" id="talklist"></ul>
+  <figure class="photo2"><img src="talk-mic.jpg" alt="マイクを持って講演する中野年章" loading="lazy"><figcaption>講演の様子</figcaption></figure>
+  <p class="small">このほか、自治体・業界団体・大学などでの講演多数。寄稿・取材もお受けしています。</p>
+</section>
+
+<section id="now" class="rv">
+  <div class="chap">RECENT WORK</div>
+  <h2>いま、取り組んでいること</h2>
+  <div class="now">
+    <div><div class="y">2025 –</div><h3>SAVE THE FARMS by YANMAR</h3><p>環境再生型農業と営農型太陽光発電を組み合わせ、担い手不足や耕作放棄地から未来の農地を守るプロジェクト。2030年度に全国1,000haでの展開を目指しています。<br><a href="https://www.yanmar.com/jp/save_the_farms/" target="_blank" rel="noopener">プロジェクトサイト ↗</a></p></div>
+    <div><div class="y">2026</div><h3>事業会社2社を設立し、代表に</h3><p>ヤンマーセーブザファームズ滋賀合同会社、ヤンマーセーブザファームズ岡山合同会社を設立。滋賀県栗東市の水田では、営農型太陽光発電の圃場が竣工し、開所式を迎えました。</p></div>
+    <div><div class="y">2026.6</div><h3>静岡県袋井市と連携協定</h3><p>農地の利活用や荒廃農地の再生、担い手とのマッチング、環境負荷を減らす技術の普及などで、市と連携していきます。</p></div>
+    <div><div class="y">2022 –</div><h3>米原市「ECOVILLAGE構想」</h3><p>米原市・滋賀県とともに環境省「脱炭素先行地域」に選定。再生可能エネルギーによる地域づくりの事業計画を担いました。</p></div>
+  </div>
+</section>
+
+<section id="career" class="rv">
+  <div class="chap">CAREER</div>
+  <h2>キャリアの、三つの時代</h2>
+
+  <div class="era">
+    <div class="yr">1987 – 2008　パイオニア／インクリメントP</div>
+    <h3>地図をつくった時代</h3>
+    <p>電気通信大学で通信工学を学び、パイオニアの技術研究所へ。AV機器のIC設計、PCの組込みソフト、社内外のインターネットサービスを手がけたあと、地図データベースの子会社に移り、地図サービス「MapFan」の商品企画を率いました。</p>
+    <div class="nums"><div><b>業界トップ</b>PC・携帯・スマホ向け地図サービス</div><div><b>20億円</b>統括事業の売上規模</div></div>
+  </div>
+
+  <div class="era">
+    <div class="yr">2008 – 2015　パイオニア／ナビポータル</div>
+    <h3>クルマをつなげた時代</h3>
+    <p>カーナビをネットワークにつなぐ「コネクティッド」の黎明期に、企画部長・取締役としてIoTサービスを企画。クルマ同士が渋滞情報を共有する仕組みは、国内の主要自動車メーカーに採用されました。</p>
+    <div class="nums"><div><b>5社</b>テレマティクスに採用（自動車・車載機器）</div><div><b>No.1</b>「スマートループ」で市販カーナビシェアに貢献</div><div><b>50名</b>率いたチーム</div></div>
+  </div>
+
+  <div class="era">
+    <div class="yr">2015 – 現在　ヤンマー</div>
+    <h3>農業と共創の時代</h3>
+    <p>50歳でヤンマーへ。IoT戦略の立案から始まり、新規事業の仕組みづくり、海外での事業実証、CVCでのスタートアップ投資を経て、いまは農業とエネルギーをつなぐ事業の責任者を務めています。</p>
+    <ul>
+      <li>事業創出部：新規事業プロセスを構築、シリコンバレーのスタートアップへ投資</li>
+      <li>コネクティッドビジネス室長：トルコ・インドネシア・ブラジル・インドで5つの新規事業を実証</li>
+      <li>イノベーションセンター部長：建機・農機シェアリング、AI/IoTグリーンハウスなど8プロジェクト</li>
+      <li>ヤンマーベンチャーズ取締役：スタートアップ投資と事業シナジー</li>
+      <li>共創推進室長 → ヤンマー・サステナブル・ファーム：脱炭素先行地域、SAVE THE FARMS by YANMAR</li>
+    </ul>
+  </div>
+</section>
+
+<section class="rv">
+  <div class="chap">EXPERTISE</div>
+  <h2>知見とネットワーク</h2>
+  <div class="skills">
+    <div><h3>新規事業開発</h3><p>構想から事業性検証、テストマーケティング、事業会社の設立・運営まで。IoT・ネットサービスで18年以上。</p></div>
+    <div><h3>脱炭素・再エネ</h3><p>営農型太陽光発電の事業モデル、自治体との共同計画、PPA、カーボンクレジット。</p></div>
+    <div><h3>オープンイノベーション</h3><p>CVC運営、スタートアップ投資、大企業・自治体・大学との共創プロジェクト。</p></div>
+    <div><h3>ネットワーク</h3><p>自動車・車載機器メーカー、通信キャリア、ネットサービス企業、省庁・自治体、大学・研究機関。</p></div>
+  </div>
+</section>
+
+<section id="contact" class="rv">
+  <div class="contact">
+    <div class="chap">CONTACT</div>
+    <h2>講演・寄稿のご依頼</h2>
+    <p>講演、パネルディスカッション、寄稿、取材のご相談は、LinkedInのメッセージからお気軽にどうぞ。</p>
+    <a class="btn" href="https://www.linkedin.com/in/toshiaki-nakano-4236694b" target="_blank" rel="noopener">LinkedIn でメッセージを送る</a>
+    <p class="small">現在は、所属企業の業務としてお受けしています。内容によっては会社を通じたご案内となります。</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p><a href="./">← 自己紹介ページへ戻る</a></p>
+  <p>本ページは中野年章が個人として運営しています。掲載内容は個人の見解であり、所属組織を代表するものではありません。<br>社名・プロジェクト名は各社の公表情報に基づきます。</p>
+  <p>© 2026 Nakano Toshiaki</p>
+</footer>
+
+<script>
+/* ===== 講演リスト：新しいものを上に追加してください ===== */
+const TALKS = [
+  {d:"2026.12.17", up:true, ev:"SSKセミナー「営農型太陽光発電の最新動向と各社取組」",
+   tt:"YANMARの取組と展望", nt:"三菱総合研究所・出光興産・クボタと登壇",
+   url:"https://prtimes.jp/main/html/rd/p/000004791.000032407.html"},
+  {d:"2026.10.09", ev:"第16回 農業WEEK（J-AGRI）東京　特別講演",
+   tt:"望ましい営農型太陽光発電の実践による環境再生型農業を取り入れた持続可能な農業の実現", nt:"農林水産省・フェイガーと登壇",
+   url:"https://prtimes.jp/main/html/rd/p/000000096.000114514.html"},
+  {d:"2026.09.09", ev:"スマートエネルギーWEEK【秋】PV EXPO　専門技術セミナー",
+   tt:"環境再生型農業と営農型太陽光発電で未来の農地を守る「SAVE THE FARMS by YANMAR」", nt:"セッション「太陽光発電 “導入拡大時代” の新戦略」"},
+  {d:"2025.10.03", ev:"第15回 農業WEEK（J-AGRI）東京　特別講演",
+   tt:"未来の農地を守るプロジェクト「SAVE THE FARMS by YANMAR」", nt:"千葉エコ・エネルギー 馬上丈司 氏と登壇",
+   url:"https://www.yanmar.com/jp/save_the_farms/news/2025/09/25/156556.html"},
+  {d:"2025.09.09", ev:"産業技術総合研究所 FREA-PV セミナー",
+   tt:"営農型太陽光発電とスマート農業に関するセミナー", nt:""},
+  {d:"2025.06.11", ev:"SAVE THE FARMS by YANMAR 事業説明会",
+   tt:"プロジェクト概要の説明", nt:"",
+   url:"https://news.mynavi.jp/techplus/article/20250611-3351266/"},
+  {d:"2018", ev:"GITA-JAPAN 第29回コンファレンス",
+   tt:"100年企業ヤンマーにおけるGIS/IoT技術を活用した社会課題解決への挑戦", nt:""}
+];
+const ul=document.getElementById('talklist');
+TALKS.forEach(t=>{
+  const li=document.createElement('li');
+  const title=t.url?`<a href="${t.url}" target="_blank" rel="noopener">${t.tt} ↗</a>`:t.tt;
+  li.innerHTML=`<div class="d">${t.d}${t.up?'<br><small>予定</small>':''}</div>
+    <div><div class="ev">${t.ev}</div><div class="tt">${title}</div>${t.nt?`<div class="nt">${t.nt}</div>`:''}</div>`;
+  ul.appendChild(li);
+});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
