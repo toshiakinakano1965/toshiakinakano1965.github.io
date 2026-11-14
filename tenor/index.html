@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ETS852 セットアップ ― 中野年章</title>
+<meta name="description" content="Eastman ETS852NL・Guardala MB II・Silverstein Gen 5 でそろえたテナーサックスのセットアップと試奏メモ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one late-night club column; the page follows the air path — reed, ligature, mouthpiece, body, bell. */
+:root {
+  --night: #12161d;      /* 52番街の夜 */
+  --night-2: #1a2029;    /* 一段明るい面 */
+  --line: #2c3440;
+  --text: #ece6da;       /* 紙のような明るさ */
+  --muted: #a39d92;
+  --brass: #c09356;      /* アンラッカーの真鍮 */
+  --brass-dim: #7d6342;
+  --gold: #e3c06a;       /* 金メッキ */
+  --cord: #8fa6b8;       /* リガチャーのコード */
+  --display: "Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --body: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--night); color: var(--text); font-family: var(--body); font-size: 16px; line-height: 1.85; }
+.wrap { max-width: 1040px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); background: var(--night); }
+.hero .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% 55%; display: block; max-width: none; }
+.hero .shade { position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(18,22,29,.94) 0%, rgba(18,22,29,.82) 34%, rgba(18,22,29,.35) 62%, rgba(18,22,29,.15) 100%),
+    linear-gradient(180deg, rgba(18,22,29,.25) 0%, rgba(18,22,29,0) 30%, rgba(18,22,29,0) 70%, rgba(18,22,29,.95) 100%); }
+.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hero .wrap { position: relative; padding-block: 96px 150px; }
+.hero h1, .hero .lede { max-width: 15em; }
+.hero .lede { max-width: 30em; text-shadow: 0 1px 12px rgba(0,0,0,.6); }
+.hero .credit { position: absolute; right: max(16px, env(safe-area-inset-right, 0px)); bottom: 14px; margin: 0; font-size: 12px; color: rgba(236,230,218,.75); text-shadow: 0 1px 6px rgba(0,0,0,.8); }
+@media (max-width: 760px) {
+  .hero .shade { background: linear-gradient(180deg, rgba(18,22,29,.88) 0%, rgba(18,22,29,.7) 55%, rgba(18,22,29,.95) 100%); }
+  .hero .credit { left: max(16px, env(safe-area-inset-left, 0px)); right: auto; }
+}
+.kicker { font-family: var(--mono); font-size: 12px; letter-spacing: .18em; color: var(--brass); text-transform: uppercase; margin: 0 0 18px; }
+h1 { font-family: var(--display); font-weight: 800; font-size: clamp(36px, 7vw, 76px); line-height: 1.2; margin: 0 0 22px; text-wrap: balance; letter-spacing: .01em; }
+h1 em { font-style: normal; color: var(--brass); }
+.lede { max-width: 36em; color: var(--muted); font-size: 17px; margin: 0; }
+.lede b { color: var(--text); font-weight: 500; }
+
+/* Air path */
+.path { padding-block: 56px 24px; }
+.path h2, .section-head h2 { font-family: var(--display); font-weight: 700; font-size: clamp(24px, 3.4vw, 34px); margin: 0 0 8px; text-wrap: balance; }
+.path p.note { color: var(--muted); margin: 0 0 26px; max-width: 40em; }
+.chain { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; list-style: none; padding: 0; margin: 0; counter-reset: step; }
+.chain li { position: relative; padding: 14px 12px 0 0; border-top: 2px solid var(--line); min-width: 0; }
+.chain li::before { content: ""; position: absolute; top: -7px; left: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--night); border: 2px solid var(--muted); }
+.chain li.brass::before { border-color: var(--brass); background: var(--brass); }
+.chain li.gold::before { border-color: var(--gold); background: var(--gold); }
+.chain li.cord::before { border-color: var(--cord); background: var(--cord); }
+.chain .part { font-weight: 700; font-size: 15px; display: block; }
+.chain .who { font-size: 13px; color: var(--muted); display: block; line-height: 1.6; }
+.chain a { color: inherit; text-decoration: none; }
+.chain a:hover .part { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Items */
+.item { padding-block: 64px; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr); gap: 48px; align-items: start; }
+.item:first-of-type { border-top: 0; }
+.tag { display: inline-block; font-family: var(--mono); font-size: 12px; letter-spacing: .12em; padding: 3px 10px; border-radius: 3px; margin-bottom: 14px; }
+.brass-t { color: var(--brass); border: 1px solid var(--brass-dim); }
+.gold-t { color: var(--gold); border: 1px solid #7a6731; }
+.cord-t { color: var(--cord); border: 1px solid #4b5b67; }
+.item h3 { font-family: var(--display); font-weight: 800; font-size: clamp(26px, 4vw, 40px); line-height: 1.3; margin: 0 0 4px; text-wrap: balance; }
+.item .sub { color: var(--muted); margin: 0 0 22px; font-size: 15px; }
+.item p { margin: 0 0 14px; max-width: 34em; }
+.tried { font-size: 15px; color: var(--text); background: var(--night-2); border: 1px solid var(--line); border-radius: 6px; padding: 12px 16px; margin: 18px 0 0; max-width: 34em; }
+.tried b { color: var(--gold); font-weight: 700; }
+.voice { font-family: var(--display); font-size: 19px; line-height: 1.75; border-left: 2px solid var(--brass); padding-left: 16px; margin: 22px 0 0; color: var(--text); }
+.item.mp .voice { border-color: var(--gold); }
+.item.lig .voice { border-color: var(--cord); }
+.photo { margin: 0 0 16px; }
+.photo img { display: block; max-width: 100%; height: auto; }
+.photo.real img { width: 100%; border-radius: 6px; box-shadow: 0 18px 40px -18px rgba(0,0,0,.7); }
+.photo.prod .stage { background: radial-gradient(circle at 50% 42%, #fbfaf7, #e6e3dc); border-radius: 6px; padding: 26px; display: flex; justify-content: center; }
+.photo.prod img { width: auto; max-height: 240px; mix-blend-mode: multiply; }
+.photo figcaption { font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.6; }
+.spec { background: var(--night-2); border: 1px solid var(--line); border-radius: 6px; padding: 20px 22px; }
+.spec dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 9px 18px; font-size: 14px; }
+.spec dt { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .06em; padding-top: 2px; white-space: nowrap; }
+.spec dd { margin: 0; min-width: 0; }
+.spec .price { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.status { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 14px; display: flex; gap: 10px; align-items: baseline; }
+.status .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; transform: translateY(-1px); }
+.status.today .dot { background: var(--brass); box-shadow: 0 0 0 4px rgba(192,147,86,.18); }
+.status.wait .dot { background: var(--muted); }
+.status.done .dot { background: var(--gold); box-shadow: 0 0 0 4px rgba(227,192,106,.16); }
+
+/* Scenes */
+.scenes { padding-block: 64px; border-top: 1px solid var(--line); }
+.section-head p { color: var(--muted); margin: 0 0 24px; max-width: 40em; }
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.tabs button { font: inherit; font-size: 15px; color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 7px 18px; cursor: pointer; }
+.tabs button:hover { color: var(--text); border-color: var(--brass-dim); }
+.tabs button[aria-selected="true"] { color: var(--night); background: var(--brass); border-color: var(--brass); font-weight: 700; }
+.tabs button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.scene { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 5fr); gap: 40px; background: var(--night-2); border: 1px solid var(--line); border-radius: 8px; padding: 30px; }
+.scene h3 { font-family: var(--display); font-size: 28px; margin: 0 0 6px; }
+.scene .tempo { font-family: var(--mono); font-size: 12px; color: var(--brass); letter-spacing: .12em; margin: 0 0 14px; }
+.scene .story { margin: 0 0 16px; }
+.scene .listen { font-size: 14px; color: var(--muted); margin: 0; }
+.scene .listen b { color: var(--text); font-weight: 500; }
+.roles { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.roles li { display: grid; grid-template-columns: 86px 1fr; gap: 12px; align-items: start; font-size: 15px; }
+.roles .who { font-family: var(--mono); font-size: 12px; padding-top: 3px; letter-spacing: .04em; }
+.roles .w-body { color: var(--brass); } .roles .w-mp { color: var(--gold); } .roles .w-lig { color: var(--cord); }
+.meter { grid-column: 1 / -1; display: grid; grid-template-columns: 86px 1fr; gap: 12px; align-items: center; margin-top: 6px; }
+.meter span { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.bar { height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--brass), var(--gold)); border-radius: 3px; transition: width .5s ease; }
+@media (prefers-reduced-motion: reduce) { .bar i { transition: none; } }
+.scale-note { font-size: 12px; color: var(--muted); margin-top: 10px; }
+
+/* Timeline */
+.until { padding-block: 64px 80px; border-top: 1px solid var(--line); }
+.tl { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.tl li { display: grid; grid-template-columns: 110px 1fr; gap: 18px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.tl time { font-family: var(--mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 2px; }
+.tl li.now time { color: var(--brass); }
+.tl li.now strong { color: var(--brass); }
+.tl li.next time, .tl li.next span { color: var(--muted); }
+.tl .check { display: block; margin-top: 6px; font-size: 14px; color: var(--gold); }
+.foot { font-size: 12px; color: var(--muted); margin-top: 32px; }
+.foot a { color: var(--muted); }
+
+@media (max-width: 760px) {
+  .item, .scene { grid-template-columns: 1fr; gap: 24px; }
+  .chain { grid-template-columns: 1fr; }
+  .chain li { border-top: 0; border-left: 2px solid var(--line); padding: 0 0 18px 20px; }
+  .chain li::before { top: 4px; left: -7px; }
+  .scene { padding: 22px; }
+  .tl li { grid-template-columns: 1fr; gap: 2px; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img class="bg" src="img/live.jpg" width="1700" height="963" alt="ライブハウスのステージで演奏するビッグバンド SingJokers。いちばん手前でテナーサックスを吹いているのが私">
+  <div class="shade" aria-hidden="true"></div>
+  <canvas id="waves" aria-hidden="true"></canvas>
+  <p class="credit">SingJokers のライブ · いちばん手前のテナーが私</p>
+  <div class="wrap">
+    <p class="kicker">Eastman 52nd Street · Guardala MB II · Silverstein Gen 5</p>
+    <h1>52番街の音が、<br><em>横浜</em>で鳴りはじめる。</h1>
+    <p class="lede">ボブ・ミンツァーが選んだテナーに、ブレッカー系譜の金のマウスピース、そしてコードで留めるリガチャー。10/24 に本体が戻り、<b>11/14 にイギリスからの2点も届いて</b>、ひとつのセットアップになりました。</p>
+  </div>
+</header>
+
+<main>
+  <section class="path wrap" aria-labelledby="path-h">
+    <h2 id="path-h">息が音になるまでの道</h2>
+    <p class="note">吹き込んだ息は、リードを震わせ、マウスピースの中で形を与えられ、管体で響きになり、ベルから外へ出ていきます。今回そろった3つは、この道のちょうど要所にあります。</p>
+    <ol class="chain">
+      <li><span class="part">リード</span><span class="who">D'Addario Select Jazz</span></li>
+      <li class="cord"><a href="#lig"><span class="part">リガチャー</span><span class="who">Silverstein Gen 5</span></a></li>
+      <li class="gold"><a href="#mp"><span class="part">マウスピース</span><span class="who">Guardala MB II</span></a></li>
+      <li class="brass"><a href="#body"><span class="part">ネック・管体</span><span class="who">Eastman ETS852NL</span></a></li>
+      <li class="brass"><a href="#body"><span class="part">ベル</span><span class="who">ラージベル</span></a></li>
+    </ol>
+  </section>
+
+  <div class="wrap">
+    <article class="item" id="body">
+      <div>
+        <span class="tag brass-t">本体 · BODY</span>
+        <h3>Eastman ETS852NL<br>“52nd Street”</h3>
+        <p class="sub">ボブ・ミンツァー氏選定品 · テナーサックス</p>
+        <p>ニューヨークのジャズの象徴、52番街の名を持つモデル。ビッグバンドとイエロージャケッツで知られるボブ・ミンツァーと Eastman が共同で作ったテナーで、今回の一本はミンツァー本人が選んだ個体です。</p>
+        <p>大きめのベル、ロールドタイプのトーンホール、ラッカーを塗らない真鍮の仕上げ。どれも、昔ながらのアメリカンサウンドの太く温かい響きに向けた設計です。ミンツァーのために作られた「M」ネックは、楽器全体を開放的に鳴らす太めの設計です。</p>
+        <p class="voice">芯の太い、空気ごと鳴るような低音。吹き込むほど、部屋の空気が真鍮色に変わっていく。</p>
+      </div>
+      <aside aria-label="ETS852NL の写真と仕様">
+        <figure class="photo real">
+          <img src="img/sax.jpg" width="1100" height="1247" alt="ケースに収まったアンラッカー仕上げの Eastman テナーサックス">
+          <figcaption>10/17 に撮った交換前の個体。10/24 に受け取った交換品も同じ ETS852NL です。</figcaption>
+        </figure>
+        <div class="spec">
+        <dl>
+          <dt>設計</dt><dd>Bob Mintzer と共同開発</dd>
+          <dt>仕上げ</dt><dd>アンラッカー（エイジド・ブラス）</dd>
+          <dt>ベル</dt><dd>ラージベル</dd>
+          <dt>トーンホール</dt><dd>ロールドタイプ</dd>
+          <dt>キー機構</dt><dd>DS メカニズム（特許）、High F#</dd>
+          <dt>ネック</dt><dd>M ネック（ミンツァー仕様）</dd>
+          <dt>購入</dt><dd>イケベ楽器 · 調整＆セットアップ後出荷、5年間キーバランス調整無料</dd>
+        </dl>
+        <div class="status done"><span class="dot"></span><span>交換品を 10/24、イケベ楽器 ウインドパル渋谷で受け取り済み</span></div>
+        </div>
+      </aside>
+    </article>
+
+    <article class="item mp" id="mp">
+      <div>
+        <span class="tag gold-t">マウスピース · MOUTHPIECE</span>
+        <h3>Guardala MB II</h3>
+        <p class="sub">テナー用メタル · 金メッキ · ハンドメイド</p>
+        <p>デイブ・ガーダラの「Studio」の高いバッフルと、マイケル・ブレッカーのために作られた初代「Brecker」の大きなボアを掛け合わせたモデル。ハンドメイド版は、ガーダラの工房で働いていた職人 Nadir Ibrahimoglu が作っています。</p>
+        <p>高いバッフルは息を速く押し出し、音に輪郭と抜けを与えます。大きなボアは、その明るさの下に太い芯を残します。ジャズからフュージョン、ポップス、ロックまでを想定した一本です。</p>
+        <p class="voice">バンドの音の壁を一直線に抜けていく高音。それでいて、ただ明るいだけでは終わらない厚み。</p>
+        <p class="tried"><b>吹いてみて（11/14）</b>　Otto Link STM 7番と比べると、やはりハイバッフルらしい明るい音。リードミスが目立ちやすいので、コントロールの練習が要る。低音は Otto Link のほうが太い。ティップの開きが広いので、もう少し薄いリードが合いそう。</p>
+      </div>
+      <aside aria-label="MB II の写真と仕様">
+        <figure class="photo prod">
+          <div class="stage"><img src="img/mp.jpg" width="285" height="520" alt="金メッキの Guardala MB II テナー用マウスピース"></div>
+          <figcaption>ショップの商品画像（10/22 のカート画面より）。</figcaption>
+        </figure>
+        <div class="spec">
+        <dl>
+          <dt>系譜</dt><dd>Studio のバッフル × Brecker のボア</dd>
+          <dt>製作</dt><dd>Nadir Ibrahimoglu（PMS music, ドイツ）</dd>
+          <dt>素材</dt><dd>真鍮 · 金メッキ</dd>
+          <dt>得意な場面</dt><dd>コンテンポラリー、ポップス、ロック、ジャズ</dd>
+          <dt>評判</dt><dd>温かい音から明るい音まで幅広い。ただし吹き手に正直で、あまり寛容ではない、という声も</dd>        </dl>
+        <div class="status done"><span class="dot"></span><span><b>11/14 に到着</b>。付属の革製リガチャーも同梱</span></div>
+        </div>
+      </aside>
+    </article>
+
+    <article class="item lig" id="lig">
+      <div>
+        <span class="tag cord-t">リガチャー · LIGATURE</span>
+        <h3>Silverstein Original<br>A-Frame Gen 5</h3>
+        <p class="sub">Size 2 · Metal Tenor（注文時の Size 4 から変更）</p>
+        <p>金属のネジではなく、コードを巻いてリードを留めるリガチャー。5本のコードがリードを面で均一に押さえ、2本の微調整ネジで締め加減を細かく決められます。第5世代では、リードの当たりに合わせて傾く「Rocking Bridge」が加わりました。</p>
+        <p>リードを締めつけすぎないので、振動が自由に残ります。弱く吹いたときの反応の速さ、サブトーンの柔らかさ、音の立ち上がりの細かなニュアンスに効く部品です。</p>
+        <p class="voice">ささやくようなピアニッシモでも、息がそのまま音になる。表情のいちばん細かいところを受け持つ。</p>
+        <p class="tried"><b>吹いてみて（11/14）</b>　MB II 付属の革製リガチャーと付け替えて比べると、Silverstein のほうが明らかにフラジオが出しやすく、音に密度を感じた。</p>
+      </div>
+      <aside aria-label="Silverstein Gen 5 の写真と仕様">
+        <figure class="photo prod">
+          <div class="stage"><img src="img/lig.jpg" width="390" height="520" alt="コードを巻いた Silverstein の A-Frame リガチャー"></div>
+          <figcaption>カートに入れていた同じ A-Frame Gen 5 系の上位モデル、CRYO 4 Gold の画像。注文した Original は同じ構造のスタンダード版です。実物の写真を撮ったら差し替えます。</figcaption>
+        </figure>
+        <div class="spec">
+        <dl>
+          <dt>構造</dt><dd>コード 5 本 · 微調整ネジ 2 本 · キャップ付き</dd>
+          <dt>新機構</dt><dd>Rocking Bridge（Gen 5）</dd>
+          <dt>保証</dt><dd>2 年</dd>
+          <dt>サイズ</dt><dd>Size 2（Metal Small）· Guardala のテナー用に合わせたサイズ</dd>        </dl>
+        <div class="status done"><span class="dot"></span><span><b>11/14 に MB II と一緒に到着</b>。ショップが MB II に合う Size 2 に変えて送ってくれた</span></div>
+        </div>
+      </aside>
+    </article>
+  </div>
+
+  <section class="scenes" aria-labelledby="scenes-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="scenes-h">このセットで、どんな場面を吹くか</h2>
+        <p>真鍮の太い胴鳴り、金のマウスピースの抜け、コードのリガチャーの繊細さ。場面ごとに、どの部品が主役になるかを思い描いてみます。</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="演奏の場面">
+        <button role="tab" id="tab-ballad" aria-selected="true" aria-controls="scene-panel">バラード</button>
+        <button role="tab" id="tab-swing" aria-selected="false" aria-controls="scene-panel">ストレートアヘッド</button>
+        <button role="tab" id="tab-fusion" aria-selected="false" aria-controls="scene-panel">フュージョン</button>
+        <button role="tab" id="tab-funk" aria-selected="false" aria-controls="scene-panel">ファンク・ロック</button>
+      </div>
+      <div class="scene" id="scene-panel" role="tabpanel" aria-live="polite">
+        <div>
+          <h3 id="s-title"></h3>
+          <p class="tempo" id="s-tempo"></p>
+          <p class="story" id="s-story"></p>
+          <p class="listen" id="s-listen"></p>
+        </div>
+        <div>
+          <ul class="roles">
+            <li><span class="who w-body">BODY</span><span id="s-body"></span></li>
+            <li><span class="who w-mp">MOUTHPIECE</span><span id="s-mp"></span></li>
+            <li><span class="who w-lig">LIGATURE</span><span id="s-lig"></span></li>
+          </ul>
+          <div class="meter" style="margin-top:22px"><span>明るさ</span><div class="bar"><i id="m-bright"></i></div></div>
+          <div class="meter"><span>音量</span><div class="bar"><i id="m-power"></i></div></div>
+          <div class="meter"><span>繊細さ</span><div class="bar"><i id="m-subtle"></i></div></div>
+          <p class="scale-note">バーは場面どうしを比べるためのイメージで、測った値ではありません。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="until wrap" aria-labelledby="until-h">
+    <div class="section-head">
+      <h2 id="until-h">そろうまで、そしてこれから</h2>
+      <p>本体は一度戻して交換に。11/14 にイギリスからの2点が届き、最初の一音を出しました。次はリード選びです。</p>
+    </div>
+    <ol class="tl">
+      <li><time>10/11</time><span>イケベ楽器オンラインストアで ETS852NL（ミンツァー選定品）を注文</span></li>
+      <li><time>10/17</time><span>届いた個体の不具合で、交換のために返送</span></li>
+      <li><time>10/22</time><span>sax.co.uk で Guardala MB II と Silverstein Gen 5 を注文
+        <span class="check">届く前に確かめたいこと：Silverstein の販売ページでは、Guardala のテナー用（MB II など）に合うのは Metal Small（Size 2）と案内されています。注文した Size 4（Metal Medium）で合うか、発送前にショップに聞いておくと安心です。</span></span></li>
+      <li><time>10/24</time><span>交換品の ETS852NL を受け取り（イケベ楽器 ウインドパル渋谷）</span></li>
+      <li class="now"><time>11/14</time><span><strong>MB II と Silverstein が到着、最初の試奏</strong>
+        <span class="check">リガチャーはショップが Size 2 に変えて発送していた。革製リガチャーより Silverstein のほうがフラジオが出しやすく、音に密度がある。</span></span></li>
+      <li class="next"><time>11/15</time><span>MB II 用に Select Jazz ファイルド 2H（今の 3S より1段柔らかい）が届く。手持ちのファイルド 3S・アンファイルド 3S と吹き比べる</span></li>
+    </ol>
+    <p class="foot">製品の情報は、各メーカー・販売店のページ（<a href="https://www.eastmanwinds.com/saxophones" target="_blank" rel="noopener">Eastman Winds</a>、<a href="https://sax.co.uk/products/guardala-mb-ii-tenor-sax-mouthpiece-gold-plated-handmade" target="_blank" rel="noopener">sax.co.uk</a>、<a href="https://saxshop.com/products/silverstein-original-a-frame-ligature-gen-5" target="_blank" rel="noopener">saxshop.com</a>、<a href="https://www.thomann.co.uk/dave_guardala_handmade_mbii_gold_mundstueck.htm" target="_blank" rel="noopener">Thomann</a>）をもとにまとめています。</p>
+    <p class="foot"><a href="../">← 中野年章のトップページへ</a></p>
+  </section>
+</main>
+
+<script>
+(function () {
+  var scenes = {
+    ballad: {
+      title: "バラード", tempo: "TEMPO ♩= 60 前後 · 夜更けのクラブ",
+      story: "息を細く、ゆっくり。音の出だしにかすれた空気が混ざるサブトーンで、メロディをそっと置いていく。",
+      listen: "思い浮かべる音：<b>ボブ・ミンツァー</b>のビッグバンドでのバラード。",
+      body: "ラージベルとアンラッカーの真鍮が、小さな音にも温かい倍音を足す。",
+      mp: "高いバッフルは控えめに。息を落とせば、明るさの下の太い芯が前に出る。",
+      lig: "主役。リードを締めつけないので、ピアニッシモの立ち上がりが速く、かすれも自然に残る。",
+      m: [30, 25, 95]
+    },
+    swing: {
+      title: "ストレートアヘッド", tempo: "TEMPO ♩= 180 前後 · 4ビート",
+      story: "ウォーキングベースに乗って、八分音符を転がしていく。低音から高音まで、どの音域も同じ太さで鳴らしたい場面。",
+      listen: "思い浮かべる音：52番街のクラブで鳴っていた、伝統的なテナーの響き。",
+      body: "主役。ロールドタイプのトーンホールと M ネックが、音域をまたいでも均一で太い鳴りを支える。",
+      mp: "大きなボアのおかげで、明るすぎない芯のある音でスイングできる。",
+      lig: "速いパッセージでもリードの反応が遅れず、アーティキュレーションがくっきりする。",
+      m: [55, 60, 65]
+    },
+    fusion: {
+      title: "フュージョン", tempo: "TEMPO ♩= 120 前後 · エレクトリックなバンド",
+      story: "キーボードとエレキベースの中で、メロディをしっかり前に出す。高音域で歌うソロが聴かせどころ。",
+      listen: "思い浮かべる音：ミンツァーが参加する<b>イエロージャケッツ</b>のサウンド。",
+      body: "太い胴鳴りが、電気楽器の中でも生の管楽器らしい存在感を保つ。",
+      mp: "主役。Studio 譲りの高いバッフルが、音に輪郭を与えてバンドの上に乗せる。",
+      lig: "微調整ネジで締め具合を少し強めにすれば、音の焦点がさらに締まる。",
+      m: [80, 75, 55]
+    },
+    funk: {
+      title: "ファンク・ロック", tempo: "TEMPO ♩= 105 前後 · ホーンセクション",
+      story: "ドラムとギターのカッティングに負けない、鋭いリフとシャウトするような高音。",
+      listen: "思い浮かべる音：MB の名の由来、<b>マイケル・ブレッカー</b>とブレッカー・ブラザーズ。",
+      body: "息をたっぷり入れても音が割れず、大きな音量を受け止める。",
+      mp: "主役。高いバッフルと大きなボアの組み合わせは、まさにこの音のために生まれた系譜。",
+      lig: "強く吹いてもリードが自由に振動し、音の芯がつぶれない。",
+      m: [95, 95, 35]
+    }
+  };
+  var ids = ["ballad", "swing", "fusion", "funk"];
+  function $(id) { return document.getElementById(id); }
+  function show(key) {
+    var s = scenes[key];
+    $("s-title").textContent = s.title;
+    $("s-tempo").textContent = s.tempo;
+    $("s-story").textContent = s.story;
+    $("s-listen").innerHTML = s.listen;
+    $("s-body").textContent = s.body;
+    $("s-mp").textContent = s.mp;
+    $("s-lig").textContent = s.lig;
+    $("m-bright").style.width = s.m[0] + "%";
+    $("m-power").style.width = s.m[1] + "%";
+    $("m-subtle").style.width = s.m[2] + "%";
+    ids.forEach(function (k) { $("tab-" + k).setAttribute("aria-selected", k === key ? "true" : "false"); });
+    $("scene-panel").setAttribute("aria-labelledby", "tab-" + key);
+  }
+  ids.forEach(function (k, i) {
+    var b = $("tab-" + k);
+    b.addEventListener("click", function () { show(k); });
+    b.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+        var n = ids[(i + (e.key === "ArrowRight" ? 1 : ids.length - 1)) % ids.length];
+        show(n); $("tab-" + n).focus();
+      }
+    });
+  });
+  show("ballad");
+
+  // Hero: sound waves in brass and gold
+  var c = $("waves"), ctx = c.getContext("2d");
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var w, h, dpr;
+  function size() {
+    dpr = window.devicePixelRatio || 1;
+    w = c.clientWidth; h = c.clientHeight;
+    c.width = w * dpr; c.height = h * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  var lines = [
+    { color: "rgba(192,147,86,0.30)", amp: 0.035, freq: 1.3, speed: 0.35, y: 0.93 },
+    { color: "rgba(192,147,86,0.18)", amp: 0.045, freq: 0.8, speed: 0.22, y: 0.94 },
+    { color: "rgba(227,192,106,0.30)", amp: 0.02, freq: 3.1, speed: 0.55, y: 0.925 },
+    { color: "rgba(143,166,184,0.20)", amp: 0.015, freq: 5.2, speed: 0.8, y: 0.935 }
+  ];
+  function draw(t) {
+    ctx.clearRect(0, 0, w, h);
+    lines.forEach(function (L) {
+      ctx.beginPath();
+      for (var x = 0; x <= w; x += 4) {
+        var p = x / w;
+        var env = Math.sin(Math.PI * p);
+        var y = h * L.y + Math.sin(p * Math.PI * 2 * L.freq + t * L.speed) * h * L.amp * env
+              + Math.sin(p * Math.PI * 2 * L.freq * 2.1 - t * L.speed * 0.7) * h * L.amp * 0.3 * env;
+        if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.strokeStyle = L.color; ctx.lineWidth = 1.5; ctx.stroke();
+    });
+  }
+  size();
+  window.addEventListener("resize", function () { size(); if (reduce) draw(0); });
+  if (reduce) { draw(0); }
+  else {
+    var start = performance.now();
+    (function loop(now) { draw((now - start) / 1000); requestAnimationFrame(loop); })(start);
+  }
+})();
+</script>
+</body>
+</html>
