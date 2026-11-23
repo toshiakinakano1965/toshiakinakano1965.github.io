@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>南九州をひとまわり</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* VOICE: 静かな一人称の旅行記。写真が主役で、文章は余白に置く
+   IDEA: 旅先で書いた一冊の紀行文。各日は一章、写真は貼り込まれたプリント
+   PICTURE: 高千穂峡の全幅写真と、鹿児島・天草・高千穂を結ぶ手描きルート図
+   COLOUR and TYPE: 白い紙・桜島の灰色がかった焦げ茶の文字・棚田の稲穂色を支えに、差し色は天草の海の青。Shippori Mincho＋Zen Kaku Gothic New
+   LAYOUT: 全幅の表紙、ルート図、日ごとの章（日付を左に大きく吊る）、写真は2列のグリッド */
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#16120f);--ink:light-dark(#2b211b,#eee4da);--mute:light-dark(#76665a,#b3a497);
+--river:light-dark(#a8862c,#d6b65e);--lotus:light-dark(#1d6f8f,#6cc0dc);--line:light-dark(#e7ddd3,#3a2f27);--paper:light-dark(#f6f1ec,#211b16)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.95 "Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;overflow-x:clip}
+a{color:inherit}
+.sans{font-family:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif}
+.cover{position:relative;min-height:min(88vh,760px);display:grid;align-items:end;color:#fff;background:#2b211b}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,10,0) 35%,rgba(20,14,10,.78))}
+.cover-in{position:relative;z-index:1;padding:clamp(28px,5vw,72px) max(5vw,16px);max-width:1240px;width:100%;margin:0 auto}
+.cover h1{font-size:clamp(34px,6vw,58px);line-height:1.15;margin:0 0 14px;font-weight:700;text-wrap:balance}
+.cover p{margin:0;font-size:15px;opacity:.92}
+.nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .scroll{display:flex;gap:6px;padding:8px max(5vw,16px);max-width:1240px;margin:0 auto;overflow-x:auto}
+.nav a{flex:none;text-decoration:none;font-size:14px;padding:10px 14px;border-radius:999px;color:var(--mute);min-height:44px;display:flex;align-items:center}
+.nav a:hover,.nav a:focus-visible{color:var(--ink);background:var(--paper);outline:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
+.lead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(40px,6vw,88px) 0}
+.lead p{margin:0 0 1.1em;max-width:34em}
+.map{background:var(--paper);border-radius:6px;padding:18px}
+.map svg{width:100%;height:auto;display:block}
+.map figcaption{font-size:13px;color:var(--mute);margin-top:8px}
+.day{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:clamp(16px,4vw,56px);padding:clamp(40px,6vw,80px) 0;border-top:1px solid var(--line)}
+.date{position:sticky;top:84px;align-self:start}
+.date b{display:block;font-size:clamp(40px,5vw,52px);line-height:1.05;font-weight:700;color:var(--river)}
+.date span{display:block;font-size:13px;color:var(--mute);margin-top:6px}
+.day h2{font-size:clamp(24px,3vw,32px);line-height:1.35;margin:0 0 6px;text-wrap:balance}
+.place{font-size:13px;color:var(--lotus);margin:0 0 22px}
+.text p{margin:0 0 1.1em;max-width:36em}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0 8px}
+.grid figure{margin:0}
+.grid .wide{grid-column:1/-1}
+.grid img{width:100%;height:100%;max-height:560px;object-fit:cover;display:block;border-radius:3px;background:var(--paper)}
+.grid .tall img{aspect-ratio:3/4}
+.grid figure:not(.tall):not(.wide) img{aspect-ratio:4/3}
+.grid .wide img{aspect-ratio:16/9;object-position:center 62%}
+.grid .full{grid-column:1/-1}.grid figure.full:not(.tall):not(.wide) img{aspect-ratio:auto;height:auto;max-height:640px;object-fit:contain;background:none;width:auto;max-width:100%;margin:0 auto}
+figcaption{font-size:13px;line-height:1.6;color:var(--mute);margin-top:6px}
+.end{background:var(--paper);padding:clamp(40px,6vw,80px) 0;margin-top:clamp(24px,4vw,48px)}
+.end p{max-width:36em;margin:0 0 1em}
+.end .back{font-size:14px;color:var(--mute)}
+img{transition:opacity .6s}
+@media(prefers-reduced-motion:reduce){img{transition:none}}
+@media(max-width:760px){.lead{grid-template-columns:minmax(0,1fr)}.day{grid-template-columns:minmax(0,1fr)}.date{position:static;display:flex;align-items:baseline;gap:12px}.date span{margin:0}}
+@media(max-width:480px){.grid{grid-template-columns:minmax(0,1fr)}.grid .tall img{aspect-ratio:4/5}body{font-size:16px}}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <img src="images/takachiho.jpg" alt="高千穂峡の真名井の滝と、川面に浮かぶ小舟">
+  <div class="cover-in">
+    <h1>南九州をひとまわり</h1>
+    <p class="sans">鹿児島・熊本・天草・高千穂・指宿　2026年9月19日〜23日</p>
+  </div>
+</header>
+
+<nav class="nav sans" aria-label="日ごとの目次">
+  <div class="scroll">
+    <a href="#d1">9/19 鹿児島へ</a><a href="#d2">9/20 天草</a><a href="#d3">9/21 高千穂</a><a href="#d4">9/22 鹿児島と指宿</a><a href="#d5">9/23 帰り道</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section class="lead">
+    <div>
+      <p>2026年の秋の連休に、僕は妻と二人で鹿児島へ飛び、そこで息子と落ち合った。三人で車に乗って、熊本、天草、高千穂とまわり、また鹿児島へ戻ってくる。五日間で、九州の南半分をぐるりと一周したことになる。</p>
+      <p>イルカの背びれ、海辺の教会、峡谷の滝、黄金色の棚田、そして山のような白くま。こうして並べてみると、ずいぶん欲張りな旅だった。でも家族の旅というのは、たぶん少し欲張りなくらいでちょうどいいのだと思う。</p>
+    </div>
+    <figure class="map">
+      <svg viewBox="0 0 520 380" role="img" aria-label="旅のルート図。鹿児島から熊本、天草、高千穂をまわって鹿児島と指宿へ">
+        <path d="M60 40 C 70 120, 40 200, 150 260 S 200 360, 240 372" fill="none" stroke="var(--lotus)" stroke-opacity=".10" stroke-width="40" stroke-linecap="round"/>
+        <path d="M500 20 L 230 262" fill="none" stroke="var(--mute)" stroke-dasharray="4 6" stroke-width="1.5"/>
+        <path d="M223 270 C 240 180, 250 110, 262 60" fill="none" stroke="var(--lotus)" stroke-width="2.4"/>
+        <path d="M262 60 C 200 70, 150 90, 133 119 C 120 135, 100 140, 94 145" fill="none" stroke="var(--lotus)" stroke-width="2.4"/>
+        <path d="M94 145 C 150 150, 220 100, 262 60" fill="none" stroke="var(--lotus)" stroke-width="2.4" stroke-dasharray="1 0"/>
+        <path d="M262 60 C 320 50, 380 60, 407 77" fill="none" stroke="var(--lotus)" stroke-width="2.4"/>
+        <path d="M407 77 C 380 170, 300 240, 223 270" fill="none" stroke="var(--lotus)" stroke-width="2.4"/>
+        <path d="M223 270 C 235 300, 245 315, 248 332" fill="none" stroke="var(--lotus)" stroke-width="2.4"/>
+        <circle cx="300" cy="300" r="14" fill="var(--mute)" fill-opacity=".35"/>
+        <text x="320" y="304" font-size="11" fill="var(--mute)" class="sans">桜島</text>
+        <g fill="var(--ink)">
+          <circle cx="223" cy="270" r="7" fill="var(--lotus)"/><circle cx="262" cy="60" r="5"/><circle cx="94" cy="145" r="5"/><circle cx="133" cy="119" r="4"/><circle cx="407" cy="77" r="5"/><circle cx="248" cy="332" r="5"/>
+        </g>
+        <text x="150" y="268" font-size="15" fill="var(--ink)">鹿児島</text>
+        <text x="274" y="56" font-size="15" fill="var(--ink)">熊本</text>
+        <text x="40" y="172" font-size="15" fill="var(--ink)">天草</text>
+        <text x="380" y="104" font-size="15" fill="var(--ink)">高千穂</text>
+        <text x="262" y="346" font-size="15" fill="var(--ink)">指宿</text>
+        <text x="496" y="16" font-size="11" fill="var(--mute)" text-anchor="end" class="sans">羽田から</text>
+      </svg>
+      <figcaption class="sans">実線は車、点線は飛行機。位置はおおよそ。</figcaption>
+    </figure>
+  </section>
+
+  <section class="day" id="d1">
+    <div class="date"><b>9.19</b><span class="sans">土曜日</span></div>
+    <div class="text">
+      <h2>海鮮丼と、夜の熊本ラーメン</h2>
+      <p class="place sans">羽田 → 鹿児島 → 熊本</p>
+      <p>朝七時に横浜の駐車場に車を預けて、羽田から飛行機に乗った。窓際の席で妻と並んで写真を撮る。そういう写真を撮るのは、だいたい旅のはじめのほうだけだ。</p>
+      <p>鹿児島に着いて、息子と合流した。最初の昼ごはんは港の近くの店の海鮮丼。久しぶりに三人で同じテーブルを囲むと、時間が少しだけ巻き戻るような感じがする。午後はそのまま北へ走り、夜は熊本でラーメンを食べた。</p>
+      <div class="grid">
+        <figure class="wide"><img src="images/f-plane.jpg" alt="飛行機の窓際で並ぶ僕と妻" loading="lazy"><figcaption class="sans">羽田から鹿児島へ。</figcaption></figure>
+        <figure class="wide"><img src="images/f-first-lunch.jpg" alt="海鮮料理の店で食卓を囲む息子と妻" loading="lazy"><figcaption class="sans">鹿児島で息子と合流して、最初の昼ごはん。</figcaption></figure>
+        <figure class="full"><img src="images/kaisendon.jpg" alt="海鮮丼と味噌汁の定食" loading="lazy"><figcaption class="sans">海鮮丼。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="d2">
+    <div class="date"><b>9.20</b><span class="sans">日曜日</span></div>
+    <div class="text">
+      <h2>イルカと、海辺の教会</h2>
+      <p class="place sans">天草（イルカウォッチング　大江天主堂　崎津教会　天草四郎ミュージアム）</p>
+      <p>天草の海で、船に乗ってイルカを見た。風が強くて、波頭が白く砕けていた。そのあいだから灰色の背びれがすっと現れ、またすっと消えていく。いくつもの背びれが、まるで約束でもしていたみたいに並んで泳いでいた。</p>
+      <p>午後は大江の丘の上に建つ白い天主堂と、海辺の小さな漁村に建つ崎津教会をたずねた。この土地で、長いあいだ人々は信仰を隠しながら暮らしてきた。真っ青な空の下で見る教会はとても静かで、その静けさの奥にあるものの重さを、僕はうまく想像することができなかった。夕方には天草四郎の像を見上げた。</p>
+      <div class="grid">
+        <figure class="wide"><img src="images/dolphins.jpg" alt="波間に並んで泳ぐイルカの背びれ" loading="lazy"><figcaption class="sans">天草のイルカ。</figcaption></figure>
+        <figure><img src="images/dolphin.jpg" alt="波を切って泳ぐイルカ" loading="lazy"><figcaption class="sans">すぐそばまで来てくれた。</figcaption></figure>
+        <figure><img src="images/dolphin-boat.jpg" alt="青い海に浮かぶイルカウォッチングの船" loading="lazy"><figcaption class="sans">イルカウォッチングの船。</figcaption></figure>
+        <figure class="wide"><img src="images/f-amakusa-sea.jpg" alt="天草の海を背にした妻と息子" loading="lazy"><figcaption class="sans">天草の海を背に。</figcaption></figure>
+        <figure><img src="images/oe-church.jpg" alt="青空の下に建つ白い大江天主堂" loading="lazy"><figcaption class="sans">大江天主堂。</figcaption></figure>
+        <figure><img src="images/hibiscus.jpg" alt="青空の下に咲く赤いハイビスカス" loading="lazy"><figcaption class="sans">九月でもハイビスカスが咲いていた。</figcaption></figure>
+        <figure class="wide"><img src="images/sakitsu-church.jpg" alt="ゴシック様式の崎津教会と漁村の家並み" loading="lazy"><figcaption class="sans">崎津教会。漁村の家並みにすっと溶けこんでいる。</figcaption></figure>
+        <figure class="full"><img src="images/shiro-statue.jpg" alt="空を指さす天草四郎の像" loading="lazy"><figcaption class="sans">天草四郎の像。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="d3">
+    <div class="date"><b>9.21</b><span class="sans">月曜日・敬老の日</span></div>
+    <div class="text">
+      <h2>石垣と、峡谷の滝</h2>
+      <p class="place sans">熊本城 → 高千穂峡 → 鹿児島</p>
+      <p>朝は熊本城のまわりを歩いた。高い石垣と、加藤清正の像。くまモンもちゃんと待っていてくれた。それから山を越えて、宮崎の高千穂峡へ向かった。</p>
+      <p>高千穂峡では、切り立った岩の壁のあいだを、真名井の滝がまっすぐに落ちていた。川面には小舟がいくつも浮かんでいて、その小ささが峡谷の深さを教えてくれた。帰り道には、刈り入れ前の黄金色の棚田が山の斜面に広がっていた。長い一日の終わりに、鹿児島に戻ってとんかつを食べた。三人とも、あまりしゃべらずに食べた。いい一日だったということだ。</p>
+      <div class="grid">
+        <figure><img src="images/kumamoto-castle.jpg" alt="堀に面した熊本城の高い石垣" loading="lazy"><figcaption class="sans">熊本城の石垣。</figcaption></figure>
+        <figure><img src="images/kiyomasa.jpg" alt="木々のあいだに立つ加藤清正の像" loading="lazy"><figcaption class="sans">加藤清正の像。</figcaption></figure>
+        <figure class="tall"><img src="images/kumamon.jpg" alt="桜の小路の看板の横に立つくまモン" loading="lazy"><figcaption class="sans">くまモンが待っていた。</figcaption></figure>
+        <figure class="tall"><img src="images/manai-falls.jpg" alt="高千穂峡の真名井の滝と小舟" loading="lazy"><figcaption class="sans">真名井の滝。</figcaption></figure>
+        <figure class="tall"><img src="images/waterfall.jpg" alt="岩肌を流れ落ちる滝" loading="lazy"><figcaption class="sans">もうひとつの滝。</figcaption></figure>
+        <figure class="tall"><img src="images/f-waterfall.jpg" alt="滝の前でポーズをとる妻と息子" loading="lazy"><figcaption class="sans">滝の前で。</figcaption></figure>
+        <figure class="wide"><img src="images/f-gorge.jpg" alt="渓谷を背にした妻" loading="lazy"><figcaption class="sans">峡谷の上から。</figcaption></figure>
+        <figure><img src="images/terraces.jpg" alt="山あいに広がる黄金色の棚田" loading="lazy"><figcaption class="sans">刈り入れ前の棚田。</figcaption></figure>
+        <figure><img src="images/rice.jpg" alt="実った稲穂と山並み" loading="lazy"><figcaption class="sans">稲穂が重たそうに頭を垂れていた。</figcaption></figure>
+        <figure class="wide"><img src="images/f-terraces.jpg" alt="棚田を背に立つ息子" loading="lazy"><figcaption class="sans">棚田と息子。</figcaption></figure>
+        <figure class="wide"><img src="images/f-tonkatsu.jpg" alt="とんかつ定食を前にした妻と息子" loading="lazy"><figcaption class="sans">鹿児島に戻って、とんかつ。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="d4">
+    <div class="date"><b>9.22</b><span class="sans">火曜日</span></div>
+    <div class="text">
+      <h2>維新の町と、白くまと、指宿の海</h2>
+      <p class="place sans">鹿児島市内 → 指宿</p>
+      <p>鹿児島の町を歩くと、あちこちで維新の人たちに出会う。大久保利通の銅像があり、西郷隆盛の誕生の地を示す石碑がある。百五十年以上前の人たちが、今も町の角に立って通りを眺めている。</p>
+      <p>天文館では名物の白くまを食べた。山のように盛られたかき氷を、息子と妻がスプーンでつついている。午後は指宿まで足をのばし、海辺で三人並んで写真を撮った。首にタオルをかけた妻の顔が、すっかりゆるんでいた。</p>
+      <div class="grid">
+        <figure class="full"><img src="images/okubo.jpg" alt="ヤシの木の前に立つ大久保利通の銅像" loading="lazy"><figcaption class="sans">大久保利通像。</figcaption></figure>
+        <figure><img src="images/lantern.jpg" alt="川沿いの石灯籠と石橋" loading="lazy"><figcaption class="sans">川沿いの石灯籠。</figcaption></figure>
+        <figure><img src="images/f-saigo.jpg" alt="西郷隆盛誕生の地の石碑と息子" loading="lazy"><figcaption class="sans">西郷隆盛誕生の地。</figcaption></figure>
+        <figure class="wide"><img src="images/f-shirokuma.jpg" alt="白くまのかき氷を食べる息子と妻" loading="lazy"><figcaption class="sans">天文館で白くま。</figcaption></figure>
+        <figure class="wide"><img src="images/f-lunch.jpg" alt="食堂で麺を前にした妻と息子" loading="lazy"><figcaption class="sans">昼ごはん。</figcaption></figure>
+        <figure class="wide"><img src="images/f-ibusuki.jpg" alt="指宿の海を背に並ぶ三人" loading="lazy"><figcaption class="sans">指宿の海辺で、三人。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="d5">
+    <div class="date"><b>9.23</b><span class="sans">水曜日・秋分の日</span></div>
+    <div class="text">
+      <h2>静かな朝の教会</h2>
+      <p class="place sans">鹿児島 → 帰路</p>
+      <p>最後の朝、鹿児島の町なかにある教会に入った。色ガラスを通った光が、礼拝堂の中を赤や青に染めていた。誰もしゃべらず、しばらくのあいだ、ただそこに座っていた。天草で見た教会のことを、僕は少し思い出した。</p>
+      <p>帰り道、南国白くまのモナカを買った。昨日食べたばかりなのに、また白くまだ。でも旅の終わりというのは、たいていそういうものだ。同じものをもう一度だけ味わって、それから家に帰る。</p>
+      <div class="grid">
+        <figure class="wide"><img src="images/church.jpg" alt="色ガラスの光に染まる教会の礼拝堂" loading="lazy"><figcaption class="sans">朝の教会。</figcaption></figure>
+        <figure class="full"><img src="images/monaka.jpg" alt="南国白くまモナカのパッケージ" loading="lazy"><figcaption class="sans">最後にもう一度、白くま。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="end">
+  <div class="wrap">
+    <p>五日間で、僕らは海と山と、いくつかの教会と、たくさんの銅像を見た。息子はまた島での暮らしに戻り、僕と妻は横浜に帰った。地図の上に引いた線は、ちょうどひとつの輪になっていた。</p>
+    <p class="back sans">2026年9月の写真から　文・写真　中野 年章</p>
+  </div>
+</footer>
+
+</body>
+</html>
