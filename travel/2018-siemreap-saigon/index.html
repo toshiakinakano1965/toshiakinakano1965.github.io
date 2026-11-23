@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>シェムリアップとホーチミン</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* VOICE: 静かな一人称の旅行記。写真が主役で、文章は余白に置く
+   IDEA: 旅先で書いた一冊の紀行文。各日は一章、写真は貼り込まれたプリント
+   PICTURE: バイヨンの顔の全幅写真と、シェムリアップからメコンまでの手描きルート図
+   COLOUR and TYPE: 白い紙・砂岩の焦げ茶の文字・メコンの泥色を支えに、差し色は睡蓮の桃色。Shippori Mincho＋Zen Kaku Gothic New
+   LAYOUT: 全幅の表紙、ルート図、日ごとの章（日付を左に大きく吊る）、写真は2列のグリッド */
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#16120f);--ink:light-dark(#2b211b,#eee4da);--mute:light-dark(#76665a,#b3a497);
+--river:light-dark(#9a7746,#c9a06a);--lotus:light-dark(#c8406f,#ef7fa3);--line:light-dark(#e7ddd3,#3a2f27);--paper:light-dark(#f6f1ec,#211b16)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.95 "Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;overflow-x:clip}
+a{color:inherit}
+.sans{font-family:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif}
+.cover{position:relative;min-height:min(88vh,760px);display:grid;align-items:end;color:#fff;background:#2b211b}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,10,0) 35%,rgba(20,14,10,.78))}
+.cover-in{position:relative;z-index:1;padding:clamp(28px,5vw,72px) max(5vw,16px);max-width:1240px;width:100%;margin:0 auto}
+.cover h1{font-size:clamp(34px,6vw,58px);line-height:1.15;margin:0 0 14px;font-weight:700;text-wrap:balance}
+.cover p{margin:0;font-size:15px;opacity:.92}
+.nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .scroll{display:flex;gap:6px;padding:8px max(5vw,16px);max-width:1240px;margin:0 auto;overflow-x:auto}
+.nav a{flex:none;text-decoration:none;font-size:14px;padding:10px 14px;border-radius:999px;color:var(--mute);min-height:44px;display:flex;align-items:center}
+.nav a:hover,.nav a:focus-visible{color:var(--ink);background:var(--paper);outline:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
+.lead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(40px,6vw,88px) 0}
+.lead p{margin:0 0 1.1em;max-width:34em}
+.map{background:var(--paper);border-radius:6px;padding:18px}
+.map svg{width:100%;height:auto;display:block}
+.map figcaption{font-size:13px;color:var(--mute);margin-top:8px}
+.day{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:clamp(16px,4vw,56px);padding:clamp(40px,6vw,80px) 0;border-top:1px solid var(--line)}
+.date{position:sticky;top:84px;align-self:start}
+.date b{display:block;font-size:clamp(40px,5vw,52px);line-height:1.05;font-weight:700;color:var(--river)}
+.date span{display:block;font-size:13px;color:var(--mute);margin-top:6px}
+.day h2{font-size:clamp(24px,3vw,32px);line-height:1.35;margin:0 0 6px;text-wrap:balance}
+.place{font-size:13px;color:var(--lotus);margin:0 0 22px}
+.text p{margin:0 0 1.1em;max-width:36em}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0 8px}
+.grid figure{margin:0}
+.grid .wide{grid-column:1/-1}
+.grid img{width:100%;height:100%;max-height:560px;object-fit:cover;display:block;border-radius:3px;background:var(--paper)}
+.grid .tall img{aspect-ratio:3/4}
+.grid figure:not(.tall):not(.wide) img{aspect-ratio:4/3}
+.grid .wide img{aspect-ratio:16/9;object-position:center 62%}
+figcaption{font-size:13px;line-height:1.6;color:var(--mute);margin-top:6px}
+.end{background:var(--paper);padding:clamp(40px,6vw,80px) 0;margin-top:clamp(24px,4vw,48px)}
+.end p{max-width:36em;margin:0 0 1em}
+.end .back{font-size:14px;color:var(--mute)}
+img{transition:opacity .6s}
+@media(prefers-reduced-motion:reduce){img{transition:none}}
+@media(max-width:760px){.lead{grid-template-columns:minmax(0,1fr)}.day{grid-template-columns:minmax(0,1fr)}.date{position:static;display:flex;align-items:baseline;gap:12px}.date span{margin:0}}
+@media(max-width:480px){.grid{grid-template-columns:minmax(0,1fr)}.grid .tall img{aspect-ratio:4/5}body{font-size:16px}}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <img src="images/bayon-faces.jpg" alt="バイヨン寺院の、微笑む四面仏の塔">
+  <div class="cover-in">
+    <h1>石の顔と、茶色い川</h1>
+    <p class="sans">シェムリアップとホーチミン　2018年8月5日〜10日</p>
+  </div>
+</header>
+
+<nav class="nav sans" aria-label="日ごとの目次">
+  <div class="scroll">
+    <a href="#d1">8/5 到着</a><a href="#d2">8/6 アンコール</a><a href="#d3">8/7 湖へ</a><a href="#d4">8/8 夜明け</a><a href="#d5">8/9 サイゴン</a><a href="#d6">8/10 メコン</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section class="lead">
+    <div>
+      <p>2018年の夏、僕は妻と息子と三人で、カンボジアのシェムリアップとベトナムのホーチミンを旅した。六日間。写真はぜんぶで七百五十枚ほど残っている。</p>
+      <p>八年も経つと、旅の記憶はだいたいどこかで混ざりあってしまう。でも写真を一枚ずつ見返していくと、湿った空気の重さや、遺跡の石の手ざわりのようなものが、引き出しの奥から少しずつ戻ってくる。これはそのとき戻ってきたものの記録だ。</p>
+    </div>
+    <figure class="map">
+      <svg viewBox="0 0 520 380" role="img" aria-label="旅のルート図。シェムリアップからトンレサップ湖、ホーチミン、メコンデルタへ">
+        <path d="M40 330 C 160 300, 250 300, 330 270 S 470 220, 500 150" fill="none" stroke="currentColor" stroke-opacity=".12" stroke-width="22" stroke-linecap="round" style="color:var(--river)"/>
+        <ellipse cx="118" cy="132" rx="58" ry="26" fill="var(--river)" fill-opacity=".22"/>
+        <text x="118" y="136" text-anchor="middle" font-size="12" fill="var(--mute)" class="sans">トンレサップ湖</text>
+        <path d="M480 24 L 150 70" fill="none" stroke="var(--mute)" stroke-dasharray="4 6" stroke-width="1.5"/>
+        <path d="M150 70 Q 300 120 395 268" fill="none" stroke="var(--lotus)" stroke-dasharray="4 6" stroke-width="1.8"/>
+        <path d="M395 268 L 352 318" fill="none" stroke="var(--lotus)" stroke-width="2.4"/>
+        <circle cx="150" cy="70" r="7" fill="var(--lotus)"/><circle cx="150" cy="70" r="13" fill="none" stroke="var(--lotus)" stroke-opacity=".35"/>
+        <circle cx="140" cy="112" r="4" fill="var(--ink)"/>
+        <circle cx="395" cy="268" r="7" fill="var(--lotus)"/><circle cx="395" cy="268" r="13" fill="none" stroke="var(--lotus)" stroke-opacity=".35"/>
+        <circle cx="352" cy="318" r="4" fill="var(--ink)"/>
+        <text x="168" y="60" font-size="15" fill="var(--ink)">シェムリアップ</text>
+        <text x="168" y="78" font-size="11" fill="var(--mute)" class="sans">8月5日〜8日</text>
+        <text x="412" y="262" font-size="15" fill="var(--ink)">ホーチミン</text>
+        <text x="412" y="280" font-size="11" fill="var(--mute)" class="sans">8月8日〜10日</text>
+        <text x="250" y="342" font-size="12" fill="var(--mute)" class="sans">メコンの中洲（8月10日）</text>
+        <text x="470" y="18" font-size="11" fill="var(--mute)" text-anchor="end" class="sans">成田から →</text>
+        <text x="240" y="170" font-size="11" fill="var(--mute)" class="sans">空路</text>
+      </svg>
+      <figcaption class="sans">点線は飛行機、実線は車と船。位置はおおよそ。</figcaption>
+    </figure>
+  </section>
+
+  <section class="day" id="d1">
+    <div class="date"><b>8.5</b><span class="sans">日曜日</span></div>
+    <div class="text">
+      <h2>夕方の空港と、色電球の通り</h2>
+      <p class="place sans">成田 → シェムリアップ</p>
+      <p>朝の成田を発って、シェムリアップに着いたのは夕方の六時前だった。空港の建物は低くて、オレンジ色の屋根が何枚も重なっていた。飛行機のタラップを降りると、空気がいきなり身体にまとわりついてくる。東南アジアの空気は、いつも少しだけ水を含んでいる。</p>
+      <p>夜は妻と息子と三人で、町の中心へ出た。通りの上には色とりどりの電球が渡してあって、トゥクトゥクがのんびりと客を待っていた。クメール料理の店で最初の夕食をとり、ホテルに戻ると、テーブルの真鍮の器に睡蓮が一輪浮かべてあった。そういうものを見ると、ああ遠くへ来たんだな、と思う。</p>
+      <div class="grid">
+        <figure class="wide"><img src="images/f-first-dinner.jpg" alt="ビールで乾杯する僕と妻" loading="lazy"><figcaption class="sans">最初の夜、まずは乾杯。</figcaption></figure>
+        <figure class="tall"><img src="images/f-night-street.jpg" alt="色電球の下に立つ妻と息子" loading="lazy"><figcaption class="sans">色電球の通りで、妻と息子。</figcaption></figure>
+        <figure class="tall"><img src="images/lotus.jpg" alt="真鍮の器に浮かぶ桃色の睡蓮" loading="lazy"><figcaption class="sans">部屋で迎えてくれた睡蓮。</figcaption></figure>
+        <figure class="wide"><img src="images/pub-street.jpg" alt="夜の通りに面したクメール料理店" loading="lazy"><figcaption class="sans">クメール料理の店。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="d2">
+    <div class="date"><b>8.6</b><span class="sans">月曜日</span></div>
+    <div class="text">
+      <h2>四つの顔と、木に呑まれる寺</h2>
+      <p class="place sans">バイヨン　タ・プローム　アンコール・ワット</p>
+      <p>朝いちばんにバイヨンへ行った。塔という塔に巨大な顔が彫られていて、どの顔もうっすらと微笑んでいる。どこに立っても、誰かにじっと見られている感じがする。不思議と嫌な気分ではなかった。八百年ものあいだ、彼らはそうやって雨季と乾季を見送ってきたのだ。</p>
+      <p>次のタ・プロームでは、木の根が石の回廊を抱きこんでいた。抱きしめているのか、締めつけているのか、僕には区別がつかなかった。たぶん、その両方なのだろう。午後はアンコール・ワットの中央祠堂を見上げ、夜はアプサラの踊りを観た。指先の反り方ひとつに、長い時間が詰まっていた。</p>
+      <div class="grid">
+        <figure class="wide"><img src="images/f-bayon.jpg" alt="バイヨンの四面仏の前に並ぶ家族" loading="lazy"><figcaption class="sans">バイヨンの顔と、僕らの顔。</figcaption></figure>
+        <figure class="wide"><img src="images/ta-prohm.jpg" alt="遺跡の回廊を覆うように伸びた巨木の根" loading="lazy"><figcaption class="sans">タ・プローム。根は石よりも辛抱強い。</figcaption></figure>
+        <figure class="tall"><img src="images/f-ta-prohm.jpg" alt="巨木の根の前に並ぶ家族" loading="lazy"><figcaption class="sans">根の前で三人。</figcaption></figure>
+        <figure class="tall"><img src="images/angkor-wat-tower.jpg" alt="下から見上げたアンコール・ワットの中央祠堂" loading="lazy"><figcaption class="sans">アンコール・ワットの中央祠堂を見上げる。</figcaption></figure>
+        <figure class="wide"><img src="images/f-angkor-pond.jpg" alt="池の向こうにアンコール・ワットを望む息子と妻" loading="lazy"><figcaption class="sans">池に映るアンコール・ワット。</figcaption></figure>
+        <figure class="wide"><img src="images/apsara.jpg" alt="舞台で踊るアプサラの踊り手たち" loading="lazy"><figcaption class="sans">夜はアプサラの踊り。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="d3">
+    <div class="date"><b>8.7</b><span class="sans">火曜日</span></div>
+    <div class="text">
+      <h2>地雷の博物館と、水の上の村</h2>
+      <p class="place sans">地雷博物館　プレ・ループ　トンレサップ湖</p>
+      <p>朝食は米の麺のスープだった。ライムを絞ると、湯気の匂いがすっと変わる。それから郊外の地雷博物館へ行った。庭には爆弾の殻が何本も立てて並べてあり、館内には地雷を除去する人たちのベストと探知機が飾られていた。のどかな田舎道のすぐ脇に、ついこのあいだまでそういうものが埋まっていたのだ。僕はしばらく黙って、その事実について考えていた。</p>
+      <p>帰り道、赤茶けたプレ・ループの塔と、どこまでも続く水田を見た。午後は船でトンレサップ湖へ出た。救命胴衣を着けた息子は、カメラを向けるとピースをした。水はミルクティーのような色をしていて、その上に青い家や教会や学校が浮かんでいた。人は水の上でも、ちゃんと暮らしていける。</p>
+      <div class="grid">
+        <figure class="tall"><img src="images/noodle.jpg" alt="ライムとねぎをのせた米麺のスープ" loading="lazy"><figcaption class="sans">朝の麺。</figcaption></figure>
+        <figure class="tall"><img src="images/landmine-museum.jpg" alt="地雷除去員のオレンジのベストと金属探知機の展示" loading="lazy"><figcaption class="sans">除去作業のベストと探知機。</figcaption></figure>
+        <figure><img src="images/f-landmine.jpg" alt="地雷博物館の入口に立つ妻と息子" loading="lazy"><figcaption class="sans">地雷博物館の入口で。</figcaption></figure>
+        <figure><img src="images/bomb-casings.jpg" alt="木陰に並べて立てられた爆弾の殻" loading="lazy"><figcaption class="sans">庭に並ぶ爆弾の殻。</figcaption></figure>
+        <figure><img src="images/pre-rup.jpg" alt="木立の向こうに見えるプレ・ループの塔" loading="lazy"><figcaption class="sans">プレ・ループ。</figcaption></figure>
+        <figure><img src="images/rice-field.jpg" alt="青空の下に広がる緑の水田" loading="lazy"><figcaption class="sans">遺跡の帰りに見た水田。</figcaption></figure>
+        <figure class="wide"><img src="images/f-boat.jpg" alt="救命胴衣を着けて船に乗る家族" loading="lazy"><figcaption class="sans">トンレサップ湖へ向かう船。救命胴衣は少し暑い。</figcaption></figure>
+        <figure><img src="images/floating-church.jpg" alt="茶色い湖面に浮かぶ青い水上の建物" loading="lazy"><figcaption class="sans">十字架を掲げた青い建物。</figcaption></figure>
+        <figure><img src="images/floating-houses.jpg" alt="湖の上に浮かぶ青い家々" loading="lazy"><figcaption class="sans">水の上の家々。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="d4">
+    <div class="date"><b>8.8</b><span class="sans">水曜日</span></div>
+    <div class="text">
+      <h2>雨の夜明け</h2>
+      <p class="place sans">アンコール・ワット → ホーチミン</p>
+      <p>朝五時半、朝日を見るためにもう一度アンコール・ワットへ行った。けれど空は灰色で、細かい雨が降っていた。色とりどりの傘が、西参道に沿ってゆっくりと動いていた。妻は息子に傘を差しかけていた。太陽は最後まで顔を見せなかった。でも雨の中にぼんやりと浮かぶ五つの塔は、晴れた日の写真よりもずっと、本当の姿に近いような気がした。</p>
+      <p>夕方、シェムリアップの空港から飛行機に乗った。待合の長い壁に、遺跡と象のシルエットが描かれていた。その夜、僕らはホーチミンに着いた。</p>
+      <div class="grid">
+        <figure><img src="images/angkor-dawn.jpg" alt="雨の朝、傘をさした人々の向こうに見えるアンコール・ワット" loading="lazy"><figcaption class="sans">雨のアンコール・ワット。朝日は出なかった。</figcaption></figure>
+        <figure><img src="images/f-dawn-umbrella.jpg" alt="雨の参道に立つ息子" loading="lazy"><figcaption class="sans">傘を差しかけてもらう息子。</figcaption></figure>
+        <figure><img src="images/airport-mural.jpg" alt="空港の通路に描かれた遺跡と象の影絵" loading="lazy"><figcaption class="sans">シェムリアップ空港の壁画。</figcaption></figure>
+        <figure><img src="images/f-sr-airport.jpg" alt="空港の展望エリアに立つ息子と妻" loading="lazy"><figcaption class="sans">カンボジアを離れる前に。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="d5">
+    <div class="date"><b>8.9</b><span class="sans">木曜日</span></div>
+    <div class="text">
+      <h2>宮殿の静けさ、街の喧騒</h2>
+      <p class="place sans">統一会堂　戦争証跡博物館　ベンタイン</p>
+      <p>ホーチミンは、シェムリアップとはまるで違う速度で動いていた。バイクの群れが川のように流れていく。午前中は統一会堂を見学した。かつての大統領官邸で、長いテーブルの会議室や、真っ赤な絨毯の応接間が、当時のまま残されている。誰もいない広い部屋には、独特の静けさがあった。何かが決まり、何かが終わった部屋の静けさだ。</p>
+      <p>昼はパイナップルの器に盛られたチャーハンを食べた。午後は戦争証跡博物館へ行き、夜はベンタイン市場のあたりを歩いた。昼間に見たものと、夜の屋台の賑わいが、僕の頭の中でうまく並ばなかった。でも、たぶんそれでいいのだと思う。</p>
+      <div class="grid">
+        <figure class="wide"><img src="images/independence-palace.jpg" alt="芝生と噴水の向こうに建つ統一会堂" loading="lazy"><figcaption class="sans">統一会堂。</figcaption></figure>
+        <figure class="tall"><img src="images/palace-hall.jpg" alt="シャンデリアの下に長いテーブルが置かれた広間" loading="lazy"><figcaption class="sans">シャンデリアの下の長いテーブル。</figcaption></figure>
+        <figure class="tall"><img src="images/palace-red.jpg" alt="赤い絨毯と赤いソファが並ぶ応接間" loading="lazy"><figcaption class="sans">赤い応接間。</figcaption></figure>
+        <figure><img src="images/f-tank.jpg" alt="戦車の前に立つ息子と妻" loading="lazy"><figcaption class="sans">庭に残された戦車の前で。</figcaption></figure>
+        <figure><img src="images/pineapple-rice.jpg" alt="パイナップルをくり抜いた器に盛られたチャーハン" loading="lazy"><figcaption class="sans">パイナップルのチャーハン。</figcaption></figure>
+        <figure class="wide"><img src="images/f-night-market.jpg" alt="夜の市場の通りに立つ妻" loading="lazy"><figcaption class="sans">夜のベンタインあたりを歩く妻。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="d6">
+    <div class="date"><b>8.10</b><span class="sans">金曜日</span></div>
+    <div class="text">
+      <h2>メコンの中洲で</h2>
+      <p class="place sans">メコンデルタ → ホーチミン → 帰国</p>
+      <p>最後の日は、車でメコンデルタまで出かけた。川は大きく、どこまでも茶色かった。中洲の島で手漕ぎの小舟に乗り、ニッパヤシの茂る細い水路を抜けた。妻と並んで菅笠をかぶり、舟に揺られていると、自分が誰なのか、ちょっとわからなくなる。旅というのは、ときどきそういう時間をくれる。</p>
+      <p>島ではグァバとザボンを食べ、茅葺きの屋根の店で昼食をとった。夜はホーチミンに戻って、ビルの灯りを眺めながら冷たいビールを飲んだ。深夜の便に乗る前に、僕はもう一度だけ、あの石の顔たちのことを思い出した。彼らはきっと今も、同じように微笑んでいる。</p>
+      <div class="grid">
+        <figure class="wide"><img src="images/f-sampan.jpg" alt="菅笠をかぶって小舟に乗る僕と妻" loading="lazy"><figcaption class="sans">菅笠をかぶって、小舟の上。</figcaption></figure>
+        <figure class="wide"><img src="images/nipa-palm.jpg" alt="水辺に茂るニッパヤシ" loading="lazy"><figcaption class="sans">水路を覆うニッパヤシ。</figcaption></figure>
+        <figure><img src="images/guava.jpg" alt="皿に盛られたグァバ" loading="lazy"><figcaption class="sans">グァバ。</figcaption></figure>
+        <figure><img src="images/pomelo.jpg" alt="皿に盛られたザボン" loading="lazy"><figcaption class="sans">ザボン。</figcaption></figure>
+        <figure class="wide"><img src="images/thatch.jpg" alt="ヤシの木と茅葺き屋根の建物" loading="lazy"><figcaption class="sans">茅葺きの店で昼食。</figcaption></figure>
+        <figure class="wide"><img src="images/f-rooftop.jpg" alt="夜景を背にビールを飲む妻と僕" loading="lazy"><figcaption class="sans">最後の夜、屋上でビール。</figcaption></figure>
+        <figure class="tall"><img src="images/bar.jpg" alt="ボトルの並ぶバーの棚" loading="lazy"><figcaption class="sans">最後の夜のバー。</figcaption></figure>
+        <figure class="tall"><img src="images/dinner.jpg" alt="ケサディーヤとディップの皿" loading="lazy"><figcaption class="sans">最後の夕食。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="end">
+  <div class="wrap">
+    <p>六日間で、僕らは二つの国と、たくさんの水を見た。石の顔は雨季も乾季も同じように微笑んでいて、茶色い川は昨日と同じように海へ流れていた。変わっていくのは、たぶん僕らのほうなのだろう。</p>
+    <p class="back sans">2018年8月の写真から　文・写真　中野 年章</p>
+  </div>
+</footer>
+
+</body>
+</html>
