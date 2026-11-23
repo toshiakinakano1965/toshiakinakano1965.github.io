@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>信州、夏の四日間</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* VOICE: 静かな一人称の旅行記。写真が主役で、文章は余白に置く
+   IDEA: 旅先で書いた一冊の紀行文。各日は一章、写真は貼り込まれたプリント
+   PICTURE: 上高地・大正池の全幅写真と、北杜・松本・美ヶ原・上高地を結ぶ手描きルート図
+   COLOUR and TYPE: 白い紙・山の濃い墨色の文字・ひまわりの黄土色を支えに、差し色は梓川の碧。Shippori Mincho＋Zen Kaku Gothic New
+   LAYOUT: 全幅の表紙、ルート図、日ごとの章（日付を左に大きく吊る）、写真は2列のグリッド */
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#16120f);--ink:light-dark(#2b211b,#eee4da);--mute:light-dark(#76665a,#b3a497);
+--river:light-dark(#b07d12,#e0b54a);--lotus:light-dark(#2a7a78,#72c7c2);--line:light-dark(#e7ddd3,#3a2f27);--paper:light-dark(#f6f1ec,#211b16)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.95 "Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;overflow-x:clip}
+a{color:inherit}
+.sans{font-family:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif}
+.cover{position:relative;min-height:min(88vh,760px);display:grid;align-items:end;color:#fff;background:#2b211b}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,10,0) 35%,rgba(20,14,10,.78))}
+.cover-in{position:relative;z-index:1;padding:clamp(28px,5vw,72px) max(5vw,16px);max-width:1240px;width:100%;margin:0 auto}
+.cover h1{font-size:clamp(34px,6vw,58px);line-height:1.15;margin:0 0 14px;font-weight:700;text-wrap:balance}
+.cover p{margin:0;font-size:15px;opacity:.92}
+.nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .scroll{display:flex;gap:6px;padding:8px max(5vw,16px);max-width:1240px;margin:0 auto;overflow-x:auto}
+.nav a{flex:none;text-decoration:none;font-size:14px;padding:10px 14px;border-radius:999px;color:var(--mute);min-height:44px;display:flex;align-items:center}
+.nav a:hover,.nav a:focus-visible{color:var(--ink);background:var(--paper);outline:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
+.lead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(40px,6vw,88px) 0}
+.lead p{margin:0 0 1.1em;max-width:34em}
+.map{background:var(--paper);border-radius:6px;padding:18px}
+.map svg{width:100%;height:auto;display:block}
+.map figcaption{font-size:13px;color:var(--mute);margin-top:8px}
+.day{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:clamp(16px,4vw,56px);padding:clamp(40px,6vw,80px) 0;border-top:1px solid var(--line)}
+.date{position:sticky;top:84px;align-self:start}
+.date b{display:block;font-size:clamp(40px,5vw,52px);line-height:1.05;font-weight:700;color:var(--river)}
+.date span{display:block;font-size:13px;color:var(--mute);margin-top:6px}
+.day h2{font-size:clamp(24px,3vw,32px);line-height:1.35;margin:0 0 6px;text-wrap:balance}
+.place{font-size:13px;color:var(--lotus);margin:0 0 22px}
+.text p{margin:0 0 1.1em;max-width:36em}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0 8px}
+.grid figure{margin:0}
+.grid .wide{grid-column:1/-1}
+.grid img{width:100%;height:100%;max-height:560px;object-fit:cover;display:block;border-radius:3px;background:var(--paper)}
+.grid .tall img{aspect-ratio:3/4}
+.grid figure:not(.tall):not(.wide) img{aspect-ratio:4/3}
+.grid .wide img{aspect-ratio:16/9;object-position:center 62%}
+.grid .full{grid-column:1/-1}.grid figure.full:not(.tall):not(.wide) img{aspect-ratio:auto;height:auto;max-height:640px;object-fit:contain;background:none;width:auto;max-width:100%;margin:0 auto}
+figcaption{font-size:13px;line-height:1.6;color:var(--mute);margin-top:6px}
+.end{background:var(--paper);padding:clamp(40px,6vw,80px) 0;margin-top:clamp(24px,4vw,48px)}
+.end p{max-width:36em;margin:0 0 1em}
+.end .back{font-size:14px;color:var(--mute)}
+img{transition:opacity .6s}
+@media(prefers-reduced-motion:reduce){img{transition:none}}
+@media(max-width:760px){.lead{grid-template-columns:minmax(0,1fr)}.day{grid-template-columns:minmax(0,1fr)}.date{position:static;display:flex;align-items:baseline;gap:12px}.date span{margin:0}}
+@media(max-width:480px){.grid{grid-template-columns:minmax(0,1fr)}.grid .tall img{aspect-ratio:4/5}body{font-size:16px}}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <img src="images/taisho-pond.jpg" alt="上高地の大正池と焼岳">
+  <div class="cover-in">
+    <h1>信州、夏の四日間</h1>
+    <p class="sans">北杜・松本・美ヶ原・諏訪・上高地　2026年8月1日〜4日</p>
+  </div>
+</header>
+
+<nav class="nav sans" aria-label="日ごとの目次">
+  <div class="scroll">
+    <a href="#d1">8/1 百合とひまわり</a><a href="#d2">8/2 ゴルフと松本城</a><a href="#d3">8/3 美ヶ原と諏訪</a><a href="#d4">8/4 上高地</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section class="lead">
+    <div>
+      <p>八月のはじめ、僕は妻と二人で信州をめぐった。八ヶ岳のふもとの北杜を出発して、松本に泊まり、美ヶ原の高原と諏訪の社をたずね、最後の日に上高地まで足をのばした。</p>
+      <p>写真を見返すと、そこにはだいたい妻が写っている。百合の花の横に、ひまわり畑の中に、梓川のほとりに。帽子をかぶって、少し遠くを見ている。僕はたぶん、この夏の景色を撮るつもりで、彼女を撮っていたのだと思う。</p>
+    </div>
+    <figure class="map">
+      <svg viewBox="0 0 520 380" role="img" aria-label="旅のルート図。北杜から松本、美ヶ原、諏訪、上高地へ">
+        <ellipse cx="350" cy="276" rx="26" ry="14" fill="var(--lotus)" fill-opacity=".22"/>
+        <text x="350" y="304" font-size="11" fill="var(--mute)" text-anchor="middle" class="sans">諏訪湖</text>
+        <path d="M425 322 C 400 300, 370 290, 350 276 C 300 220, 250 140, 227 87" fill="none" stroke="var(--lotus)" stroke-width="2.4"/>
+        <path d="M227 87 C 250 80, 270 85, 282 93 C 300 140, 300 190, 288 219 C 270 170, 240 120, 227 87" fill="none" stroke="var(--lotus)" stroke-width="2.4"/>
+        <path d="M227 87 C 180 70, 130 70, 90 82" fill="none" stroke="var(--lotus)" stroke-width="2.4"/>
+        <path d="M227 87 C 300 150, 380 240, 425 322" fill="none" stroke="var(--lotus)" stroke-width="2.4" stroke-dasharray="5 6"/>
+        <g fill="var(--ink)">
+          <circle cx="425" cy="322" r="7" fill="var(--lotus)"/><circle cx="227" cy="87" r="7" fill="var(--lotus)"/><circle cx="282" cy="93" r="5"/><circle cx="288" cy="219" r="5"/><circle cx="90" cy="82" r="5"/>
+        </g>
+        <text x="420" y="350" font-size="15" fill="var(--ink)" text-anchor="middle">北杜</text>
+        <text x="215" y="66" font-size="15" fill="var(--ink)" text-anchor="middle">松本</text>
+        <text x="300" y="98" font-size="15" fill="var(--ink)">美ヶ原</text>
+        <text x="300" y="224" font-size="15" fill="var(--ink)">諏訪大社</text>
+        <text x="90" y="112" font-size="15" fill="var(--ink)" text-anchor="middle">上高地</text>
+      </svg>
+      <figcaption class="sans">すべて車での移動。点線は帰り道。位置はおおよそ。</figcaption>
+    </figure>
+  </section>
+
+  <section class="day" id="d1">
+    <div class="date"><b>8.1</b><span class="sans">土曜日</span></div>
+    <div class="text">
+      <h2>百合の庭と、ひまわり畑</h2>
+      <p class="place sans">北杜</p>
+      <p>最初の日は北杜で過ごした。木陰の庭には山百合が重たそうに咲いていて、甘い匂いがあたりに漂っていた。妻はその横に立って、帽子のつばの下から少しだけこちらを見た。</p>
+      <p>午後はひまわり畑へ行った。見渡すかぎりのひまわりが、そろって同じ方角を向いている。その向こうには、雲をかぶった山並みがあった。夏というのは、こういう景色のことを言うのだと思う。</p>
+      <div class="grid">
+        <figure class="wide"><img src="images/f-lily.jpg" alt="山百合の横に立つ妻" loading="lazy"><figcaption class="sans">山百合と妻。</figcaption></figure>
+        <figure class="wide"><img src="images/lily.jpg" alt="薄紫の斑点のある百合の花" loading="lazy"><figcaption class="sans">庭の百合。</figcaption></figure>
+        <figure><img src="images/sunflowers.jpg" alt="一面のひまわり畑と山並み" loading="lazy"><figcaption class="sans">ひまわり畑。</figcaption></figure>
+        <figure><img src="images/sunflower.jpg" alt="空に向かって咲く大きなひまわり" loading="lazy"><figcaption class="sans">いちばん元気な一本。</figcaption></figure>
+        <figure class="wide"><img src="images/f-sunflower.jpg" alt="ひまわりの横で遠くを見る妻" loading="lazy"><figcaption class="sans">八重のひまわりと、妻。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="d2">
+    <div class="date"><b>8.2</b><span class="sans">日曜日</span></div>
+    <div class="text">
+      <h2>高原のゴルフと、夜の松本城</h2>
+      <p class="place sans">北杜 → 松本</p>
+      <p>朝は和食の朝ごはんを食べて、山並みを背にした高原のゴルフ場をまわった。標高が高いせいか、八月とは思えないほど風がひんやりしていた。</p>
+      <p>夕方、湖を見下ろす場所でひと休みしてから松本へ向かった。松本に着くと、なぜか大きなゴジラが出迎えてくれた。夜の松本城は、黒い壁が水面に映って、昼間よりもずっと静かに見えた。</p>
+      <div class="grid">
+        <figure class="tall"><img src="images/breakfast.jpg" alt="焼き魚と小鉢の並ぶ和朝食" loading="lazy"><figcaption class="sans">朝ごはん。</figcaption></figure>
+        <figure class="tall"><img src="images/golf-lunch.jpg" alt="鶏の照り焼き定食" loading="lazy"><figcaption class="sans">ゴルフの合間の昼ごはん。</figcaption></figure>
+        <figure class="wide"><img src="images/f-golf.jpg" alt="山並みを背にグリーンに立つ妻" loading="lazy"><figcaption class="sans">山を背に、妻のゴルフ。</figcaption></figure>
+        <figure class="wide"><img src="images/golf-course.jpg" alt="池と松のあるゴルフ場" loading="lazy"><figcaption class="sans">高原のコース。</figcaption></figure>
+        <figure class="tall"><img src="images/f-sunflower-selfie.jpg" alt="ひまわり畑の前で並ぶ妻と僕" loading="lazy"><figcaption class="sans">二人でもう一度ひまわり。</figcaption></figure>
+        <figure class="tall"><img src="images/godzilla.jpg" alt="窓辺に立つ大きなゴジラの像" loading="lazy"><figcaption class="sans">なぜかゴジラ。</figcaption></figure>
+        <figure class="wide"><img src="images/f-suwa-lake.jpg" alt="諏訪湖を背にした僕と妻" loading="lazy"><figcaption class="sans">湖を見下ろして。</figcaption></figure>
+        <figure class="wide"><img src="images/castle-night.jpg" alt="夕暮れの水面に映る松本城" loading="lazy"><figcaption class="sans">夜の松本城。</figcaption></figure>
+        <figure class="wide"><img src="images/f-castle.jpg" alt="松本城の堀端に立つ妻" loading="lazy"><figcaption class="sans">堀端で。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="d3">
+    <div class="date"><b>8.3</b><span class="sans">月曜日</span></div>
+    <div class="text">
+      <h2>水玉の美術館と、雲の上の牧場</h2>
+      <p class="place sans">松本市美術館 → 美ヶ原 → 諏訪大社</p>
+      <p>朝は松本の町を歩いた。美術館の前では、草間彌生の水玉の花たちがにぎやかに咲いていた。町のあちこちには、八月の七夕に飾る松本の七夕人形が吊るされていた。古い町には、古い町なりの夏の迎え方がある。</p>
+      <p>午後は車で美ヶ原へのぼった。雲がすぐそこにあって、広い草原では牛や馬がのんびり草を食んでいた。美しの塔の前で振り返ると、どこまでも続く高原の上を、雲の影がゆっくりと横切っていった。帰りに川辺で涼み、夕方には諏訪大社の上社をたずね、前宮と本宮に手を合わせた。</p>
+      <div class="grid">
+        <figure><img src="images/kusama.jpg" alt="美術館の前に並ぶ水玉模様の巨大な花の彫刻" loading="lazy"><figcaption class="sans">松本市美術館の草間彌生。</figcaption></figure>
+        <figure><img src="images/kusama-dog.jpg" alt="水玉模様の犬の壁画" loading="lazy"><figcaption class="sans">水玉の犬。</figcaption></figure>
+        <figure class="wide"><img src="images/tanabata.jpg" alt="壁に吊るされた着物姿の七夕人形" loading="lazy"><figcaption class="sans">松本の七夕人形。</figcaption></figure>
+        <figure class="wide"><img src="images/highland.jpg" alt="木の柵の向こうに広がる美ヶ原の草原" loading="lazy"><figcaption class="sans">雲の上の草原。</figcaption></figure>
+        <figure><img src="images/utsukushi-tower.jpg" alt="草原に立つ石造りの美しの塔" loading="lazy"><figcaption class="sans">美しの塔。</figcaption></figure>
+        <figure><img src="images/horse.jpg" alt="草原で草を食む馬" loading="lazy"><figcaption class="sans">草を食む馬。</figcaption></figure>
+        <figure class="wide"><img src="images/f-highland.jpg" alt="高原の草原で遠くを見る妻" loading="lazy"><figcaption class="sans">高原の風。</figcaption></figure>
+        <figure><img src="images/pony.jpg" alt="柵から顔を出す小さな馬" loading="lazy"><figcaption class="sans">こちらを見ていた子。</figcaption></figure>
+        <figure><img src="images/stone-buddha.jpg" alt="森の中の大きな石仏と、それを見上げる妻の後ろ姿" loading="lazy"><figcaption class="sans">森の中の石仏。</figcaption></figure>
+        <figure class="wide"><img src="images/f-river.jpg" alt="川辺に立つ妻" loading="lazy"><figcaption class="sans">帰りに川辺で涼む。</figcaption></figure>
+        <figure><img src="images/maemiya.jpg" alt="夕暮れの森の中の社殿" loading="lazy"><figcaption class="sans">諏訪大社上社前宮。</figcaption></figure>
+        <figure><img src="images/honmiya.jpg" alt="灯りのともる社殿へ歩く妻の後ろ姿" loading="lazy"><figcaption class="sans">夜の上社本宮。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="d4">
+    <div class="date"><b>8.4</b><span class="sans">火曜日</span></div>
+    <div class="text">
+      <h2>梓川の碧</h2>
+      <p class="place sans">上高地（大正池　梓川　河童橋） → 北杜</p>
+      <p>最後の日は上高地へ行った。大正池の水面には焼岳が映り、その静けさに、しばらく言葉が出なかった。そこから梓川に沿って歩く。水は信じられないくらい澄んでいて、川底の石がひとつひとつ数えられそうだった。</p>
+      <p>岩壁にはウェストンのレリーフがはめこまれていた。この山を世界に紹介した英国人の宣教師だ。河童橋の上から見る穂高の峰は、雲に半分隠れていた。全部が見えないくらいのほうが、山は山らしく見える。昼に蕎麦を食べて、僕らは北杜へ帰った。</p>
+      <div class="grid">
+        <figure class="wide"><img src="images/f-taisho.jpg" alt="大正池のほとりに立つ妻" loading="lazy"><figcaption class="sans">大正池のほとりで。</figcaption></figure>
+        <figure><img src="images/f-azusa.jpg" alt="梓川の岸辺に立つ妻" loading="lazy"><figcaption class="sans">梓川。</figcaption></figure>
+        <figure><img src="images/f-azusa2.jpg" alt="澄んだ川面を眺める妻" loading="lazy"><figcaption class="sans">水が澄みきっている。</figcaption></figure>
+        <figure><img src="images/weston.jpg" alt="岩壁にはめこまれたウェストンのレリーフ" loading="lazy"><figcaption class="sans">ウェストンのレリーフ。</figcaption></figure>
+        <figure><img src="images/stream.jpg" alt="森の中を流れる清流" loading="lazy"><figcaption class="sans">森の中の清流。</figcaption></figure>
+        <figure class="wide"><img src="images/hotaka.jpg" alt="雲のかかる岩山と針葉樹林" loading="lazy"><figcaption class="sans">雲のかかる山。</figcaption></figure>
+        <figure class="wide"><img src="images/f-hotaka.jpg" alt="穂高連峰を背にした妻" loading="lazy"><figcaption class="sans">穂高を背に。</figcaption></figure>
+        <figure class="wide"><img src="images/kappa.jpg" alt="雲に半分隠れた穂高連峰と河童橋" loading="lazy"><figcaption class="sans">河童橋と穂高。</figcaption></figure>
+        <figure class="full"><img src="images/soba.jpg" alt="山菜の乗った蕎麦" loading="lazy"><figcaption class="sans">昼は蕎麦。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="end">
+  <div class="wrap">
+    <p>四日間で、僕らは花と山と水を見た。そしてそのほとんどの写真に、妻が写っていた。景色はまた来年も同じようにそこにあるだろう。でも、写真の中の夏は、この一回きりだ。</p>
+    <p class="back sans">2026年8月の写真から　文・写真　中野 年章</p>
+  </div>
+</footer>
+
+</body>
+</html>
