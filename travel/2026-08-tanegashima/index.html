@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ロケットの島で</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* VOICE: 静かな一人称の旅行記。写真が主役で、文章は余白に置く
+   IDEA: 旅先で書いた一冊の紀行文。各日は一章、写真は貼り込まれたプリント
+   PICTURE: 旅を代表する一枚を全幅の表紙に
+   COLOUR and TYPE: 白い紙と墨色の文字、旅の土地から取った差し色を一つ。Shippori Mincho＋Zen Kaku Gothic New
+   LAYOUT: 全幅の表紙、序文、日ごとの章（日付を左に大きく吊る）、写真は2列のグリッド */
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#16120f);--ink:light-dark(#2b211b,#eee4da);--mute:light-dark(#76665a,#b3a497);
+--river:light-dark(#1d5f8f,#6fb4e2);--lotus:light-dark(#d45a2a,#f69b6a);--line:light-dark(#e7ddd3,#3a2f27);--paper:light-dark(#f6f1ec,#211b16)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.95 "Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;overflow-x:clip}
+a{color:inherit}
+.sans{font-family:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif}
+.cover{position:relative;min-height:min(88vh,760px);display:grid;align-items:end;color:#fff;background:#2b211b}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,10,0) 35%,rgba(20,14,10,.78))}
+.cover-in{position:relative;z-index:1;padding:clamp(28px,5vw,72px) max(5vw,16px);max-width:1240px;width:100%;margin:0 auto}
+.cover h1{font-size:clamp(34px,6vw,58px);line-height:1.15;margin:0 0 14px;font-weight:700;text-wrap:balance}
+.cover p{margin:0;font-size:15px;opacity:.92}
+.nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .scroll{display:flex;gap:6px;padding:8px max(5vw,16px);max-width:1240px;margin:0 auto;overflow-x:auto}
+.nav a{flex:none;text-decoration:none;font-size:14px;padding:10px 14px;border-radius:999px;color:var(--mute);min-height:44px;display:flex;align-items:center}
+.nav a:hover,.nav a:focus-visible{color:var(--ink);background:var(--paper);outline:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
+.lead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(40px,6vw,88px) 0}
+.lead p{margin:0 0 1.1em;max-width:34em}
+.map{background:var(--paper);border-radius:6px;padding:18px}
+.map svg{width:100%;height:auto;display:block}
+.map figcaption{font-size:13px;color:var(--mute);margin-top:8px}
+.day{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:clamp(16px,4vw,56px);padding:clamp(40px,6vw,80px) 0;border-top:1px solid var(--line)}
+.date{position:sticky;top:84px;align-self:start}
+.date b{display:block;font-size:clamp(40px,5vw,52px);line-height:1.05;font-weight:700;color:var(--river)}
+.date span{display:block;font-size:13px;color:var(--mute);margin-top:6px}
+.day h2{font-size:clamp(24px,3vw,32px);line-height:1.35;margin:0 0 6px;text-wrap:balance}
+.place{font-size:13px;color:var(--lotus);margin:0 0 22px}
+.text p{margin:0 0 1.1em;max-width:36em}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0 8px}
+.grid figure{margin:0}
+.grid .wide{grid-column:1/-1}
+.grid img{width:100%;height:100%;max-height:560px;object-fit:cover;display:block;border-radius:3px;background:var(--paper)}
+.grid .tall img{aspect-ratio:3/4}
+.grid figure:not(.tall):not(.wide) img{aspect-ratio:4/3}
+.grid .wide img{aspect-ratio:16/9;object-position:center 62%}
+.grid .full{grid-column:1/-1}.grid figure.full:not(.tall):not(.wide) img{aspect-ratio:auto;height:auto;max-height:640px;object-fit:contain;background:none;width:auto;max-width:100%;margin:0 auto}
+figcaption{font-size:13px;line-height:1.6;color:var(--mute);margin-top:6px}
+.end{background:var(--paper);padding:clamp(40px,6vw,80px) 0;margin-top:clamp(24px,4vw,48px)}
+.end p{max-width:36em;margin:0 0 1em}
+.end .back{font-size:14px;color:var(--mute)}
+img{transition:opacity .6s}
+@media(prefers-reduced-motion:reduce){img{transition:none}}
+@media(max-width:760px){.lead{grid-template-columns:minmax(0,1fr)}.day{grid-template-columns:minmax(0,1fr)}.date{position:static;display:flex;align-items:baseline;gap:12px}.date span{margin:0}}
+@media(max-width:480px){.grid{grid-template-columns:minmax(0,1fr)}.grid .tall img{aspect-ratio:4/5}body{font-size:16px}}
+.lead.solo{grid-template-columns:minmax(0,1fr)}.lead.solo p{max-width:38em}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <img src="images/p11.jpg" alt="種子島の白い砂浜と青い海">
+  <div class="cover-in">
+    <h1>ロケットの島で</h1>
+    <p class="sans">鹿児島・種子島　2026年8月20日〜26日</p>
+  </div>
+</header>
+
+<nav class="nav sans" aria-label="日ごとの目次">
+  <div class="scroll">
+    <a href="#d1">8/20 西へ</a><a href="#d2">8/21 仙巌園</a><a href="#d3">8/22 宇宙センター</a><a href="#d4">8/23 花火</a><a href="#d5">8/24 島を発つ</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section class="lead solo">
+    <div>
+      <p>2026年の夏、僕と妻は新幹線で西へ向かい、鹿児島から種子島へ渡った。息子に会いに行く旅だった。</p>
+      <p>島の夏は、空と海の青さがまるで違う。そしてそこには、ロケットの発射台があった。</p>
+    </div>
+  </section>
+
+  <section class="day" id="d1">
+    <div class="date"><b>8.20</b><span class="sans">木曜日</span></div>
+    <div class="text">
+      <h2>駅弁と、長い移動</h2>
+      <p class="place sans">新幹線で西へ</p>
+      <p>旅の初日は、ほとんど移動で終わった。昼は新幹線の中で、小さなおにぎりがぎっしり詰まった駅弁を広げた。夜はまた別の弁当。窓の外の景色が少しずつ変わっていくのを、ぼんやり眺めていた。</p>
+      <div class="grid">
+        <figure class="tall"><img src="images/p01.jpg" alt="小さなおにぎりが詰まった駅弁" loading="lazy"><figcaption class="sans">昼の駅弁。</figcaption></figure>
+        <figure class="tall"><img src="images/p02.jpg" alt="ご飯とフライの弁当" loading="lazy"><figcaption class="sans">夜の弁当。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="d2">
+    <div class="date"><b>8.21</b><span class="sans">金曜日</span></div>
+    <div class="text">
+      <h2>桜島と、島の夕日</h2>
+      <p class="place sans">鹿児島（仙巌園） → 種子島</p>
+      <p>鹿児島では仙巌園に立ち寄った。長い畳の廊下の先に、夏の光が白く差しこんでいた。庭の向こうには桜島が大きくそびえ、その頂に雲がかかっていた。</p>
+      <p>夕方、種子島に着いて浜へ出ると、ちょうど太陽が海に沈むところだった。息子と妻の影が、オレンジ色の砂の上に長く伸びていた。</p>
+      <div class="grid">
+        <figure class="full"><img src="images/p03.jpg" alt="長い畳の廊下" loading="lazy"><figcaption class="sans">仙巌園の廊下。</figcaption></figure>
+        <figure><img src="images/f-p04.jpg" alt="桜島を背にした妻" loading="lazy"><figcaption class="sans">桜島と妻。</figcaption></figure>
+        <figure><img src="images/p05.jpg" alt="海の向こうの桜島" loading="lazy"><figcaption class="sans">桜島。</figcaption></figure>
+        <figure><img src="images/f-p06.jpg" alt="夕日を背にした息子と妻" loading="lazy"><figcaption class="sans">島の夕日と、息子と妻。</figcaption></figure>
+        <figure><img src="images/p07.jpg" alt="海に沈む夕日" loading="lazy"><figcaption class="sans">種子島の夕日。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="d3">
+    <div class="date"><b>8.22</b><span class="sans">土曜日</span></div>
+    <div class="text">
+      <h2>発射台の見える丘</h2>
+      <p class="place sans">南種子（宇宙センター） → 島の北の浜</p>
+      <p>翌日は島の南の宇宙センターへ行った。丘の上から見下ろすと、緑の岬の先に白い発射台が立っていた。ここから本物のロケットが空へ飛んでいくのだと思うと、少し胸がどきどきした。三人で自撮りをした息子の顔は、ちょっと誇らしげだった。</p>
+      <p>午後は島の北の端の浜へ。白い砂浜と透きとおった青い海が、湾の奥まで続いていた。</p>
+      <div class="grid">
+        <figure><img src="images/f-p08.jpg" alt="展望所に立つ息子と妻" loading="lazy"><figcaption class="sans">展望所で。</figcaption></figure>
+        <figure><img src="images/p09.jpg" alt="岬の先に見える発射台" loading="lazy"><figcaption class="sans">発射台の見える丘。</figcaption></figure>
+        <figure><img src="images/f-p10.jpg" alt="宇宙センターで自撮りする三人" loading="lazy"><figcaption class="sans">三人で。</figcaption></figure>
+        <figure><img src="images/p11.jpg" alt="白い砂浜と青い海の湾" loading="lazy"><figcaption class="sans">島の北の浜。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="d4">
+    <div class="date"><b>8.23</b><span class="sans">日曜日</span></div>
+    <div class="text">
+      <h2>夏の夜の花火</h2>
+      <p class="place sans">西之表</p>
+      <p>夜はハンバーグを食べてから、花火を見に出かけた。暗い空に、緑と白の光がいくつも開いては消えていった。島の夏の夜は、音までやわらかく聞こえた。</p>
+      <div class="grid">
+        <figure class="tall"><img src="images/p12.jpg" alt="鉄板の上のハンバーグ" loading="lazy"><figcaption class="sans">夜のハンバーグ。</figcaption></figure>
+        <figure class="tall"><img src="images/f-p13.jpg" alt="ステーキを前にグラスを持つ妻" loading="lazy"><figcaption class="sans">島の夕ごはん。</figcaption></figure>
+        <figure class="wide"><img src="images/p14.jpg" alt="夜空に開く花火" loading="lazy"><figcaption class="sans">島の花火。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="d5">
+    <div class="date"><b>8.24</b><span class="sans">月曜日</span></div>
+    <div class="text">
+      <h2>堤防と、ハイビスカス</h2>
+      <p class="place sans">西之表 → 鹿児島</p>
+      <p>島を発つ朝、港の堤防を歩いた。妻は堤防の上で海を眺めていた。道ばたには、赤いハイビスカスが咲いていた。</p>
+      <p>船の上から見る海は、どこまでも濃い青だった。数日後、帰りの車中で食べた弁当には、れんこんと鮭が並んでいた。旅の終わりにも、ちゃんと駅弁があった。</p>
+      <div class="grid">
+        <figure><img src="images/f-p15.jpg" alt="港の堤防に立つ妻" loading="lazy"><figcaption class="sans">港の堤防で。</figcaption></figure>
+        <figure><img src="images/p16.jpg" alt="赤いハイビスカスの花" loading="lazy"><figcaption class="sans">島のハイビスカス。</figcaption></figure>
+        <figure class="wide"><img src="images/p17.jpg" alt="どこまでも続く濃い青の海" loading="lazy"><figcaption class="sans">船の上から。</figcaption></figure>
+        <figure class="full"><img src="images/p18.jpg" alt="れんこんと鮭の弁当" loading="lazy"><figcaption class="sans">帰りの弁当。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="end">
+  <div class="wrap">
+    <p>発射台は、ただ静かに空を見上げていた。息子の暮らす島の空は、ちゃんとどこか遠くへつながっているように見えた。</p>
+    <p class="back sans"><a href="../">← 旅の記録の一覧へ</a>　<a href="../../">トップページへ</a></p>
+    <p class="back sans">2026年8月の写真から　文・写真　中野 年章</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>お盆のゴルフと、駿河湾</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* VOICE: 静かな一人称の旅行記。写真が主役で、文章は余白に置く
+   IDEA: 旅先で書いた一冊の紀行文。各日は一章、写真は貼り込まれたプリント
+   PICTURE: 旅を代表する一枚を全幅の表紙に
+   COLOUR and TYPE: 白い紙と墨色の文字、旅の土地から取った差し色を一つ。Shippori Mincho＋Zen Kaku Gothic New
+   LAYOUT: 全幅の表紙、序文、日ごとの章（日付を左に大きく吊る）、写真は2列のグリッド */
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#16120f);--ink:light-dark(#2b211b,#eee4da);--mute:light-dark(#76665a,#b3a497);
+--river:light-dark(#3d7a2f,#8fc77e);--lotus:light-dark(#2a6fb0,#7ab3e6);--line:light-dark(#e7ddd3,#3a2f27);--paper:light-dark(#f6f1ec,#211b16)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.95 "Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;overflow-x:clip}
+a{color:inherit}
+.sans{font-family:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif}
+.cover{position:relative;min-height:min(88vh,760px);display:grid;align-items:end;color:#fff;background:#2b211b}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,10,0) 35%,rgba(20,14,10,.78))}
+.cover-in{position:relative;z-index:1;padding:clamp(28px,5vw,72px) max(5vw,16px);max-width:1240px;width:100%;margin:0 auto}
+.cover h1{font-size:clamp(34px,6vw,58px);line-height:1.15;margin:0 0 14px;font-weight:700;text-wrap:balance}
+.cover p{margin:0;font-size:15px;opacity:.92}
+.nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .scroll{display:flex;gap:6px;padding:8px max(5vw,16px);max-width:1240px;margin:0 auto;overflow-x:auto}
+.nav a{flex:none;text-decoration:none;font-size:14px;padding:10px 14px;border-radius:999px;color:var(--mute);min-height:44px;display:flex;align-items:center}
+.nav a:hover,.nav a:focus-visible{color:var(--ink);background:var(--paper);outline:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
+.lead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(40px,6vw,88px) 0}
+.lead p{margin:0 0 1.1em;max-width:34em}
+.map{background:var(--paper);border-radius:6px;padding:18px}
+.map svg{width:100%;height:auto;display:block}
+.map figcaption{font-size:13px;color:var(--mute);margin-top:8px}
+.day{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:clamp(16px,4vw,56px);padding:clamp(40px,6vw,80px) 0;border-top:1px solid var(--line)}
+.date{position:sticky;top:84px;align-self:start}
+.date b{display:block;font-size:clamp(40px,5vw,52px);line-height:1.05;font-weight:700;color:var(--river)}
+.date span{display:block;font-size:13px;color:var(--mute);margin-top:6px}
+.day h2{font-size:clamp(24px,3vw,32px);line-height:1.35;margin:0 0 6px;text-wrap:balance}
+.place{font-size:13px;color:var(--lotus);margin:0 0 22px}
+.text p{margin:0 0 1.1em;max-width:36em}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0 8px}
+.grid figure{margin:0}
+.grid .wide{grid-column:1/-1}
+.grid img{width:100%;height:100%;max-height:560px;object-fit:cover;display:block;border-radius:3px;background:var(--paper)}
+.grid .tall img{aspect-ratio:3/4}
+.grid figure:not(.tall):not(.wide) img{aspect-ratio:4/3}
+.grid .wide img{aspect-ratio:16/9;object-position:center 62%}
+.grid .full{grid-column:1/-1}.grid figure.full:not(.tall):not(.wide) img{aspect-ratio:auto;height:auto;max-height:640px;object-fit:contain;background:none;width:auto;max-width:100%;margin:0 auto}
+figcaption{font-size:13px;line-height:1.6;color:var(--mute);margin-top:6px}
+.end{background:var(--paper);padding:clamp(40px,6vw,80px) 0;margin-top:clamp(24px,4vw,48px)}
+.end p{max-width:36em;margin:0 0 1em}
+.end .back{font-size:14px;color:var(--mute)}
+img{transition:opacity .6s}
+@media(prefers-reduced-motion:reduce){img{transition:none}}
+@media(max-width:760px){.lead{grid-template-columns:minmax(0,1fr)}.day{grid-template-columns:minmax(0,1fr)}.date{position:static;display:flex;align-items:baseline;gap:12px}.date span{margin:0}}
+@media(max-width:480px){.grid{grid-template-columns:minmax(0,1fr)}.grid .tall img{aspect-ratio:4/5}body{font-size:16px}}
+.lead.solo{grid-template-columns:minmax(0,1fr)}.lead.solo p{max-width:38em}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <img src="images/p05.jpg" alt="青い空と駿河湾を見下ろすゴルフ場">
+  <div class="cover-in">
+    <h1>お盆のゴルフと、駿河湾</h1>
+    <p class="sans">沼津　2016年8月16日</p>
+  </div>
+</header>
+
+<nav class="nav sans" aria-label="日ごとの目次">
+  <div class="scroll">
+    <a href="#d1">8/16 沼津</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section class="lead solo">
+    <div>
+      <p>2016年のお盆、北海道から帰って二週間、僕らは、こんどは沼津のゴルフ場にいた。真夏の日差しの下、高台のコースからは駿河湾と遠くの山並みが見渡せた。</p>
+    </div>
+  </section>
+
+  <section class="day" id="d1">
+    <div class="date"><b>8.16</b><span class="sans">火曜日</span></div>
+    <div class="text">
+      <h2>高台のコース</h2>
+      <p class="place sans">沼津のゴルフ場</p>
+      <p>朝七時半のスタート。空はもう夏の色をしていた。妻はしましまのワンピースに帽子をかぶり、すっかりゴルファーの顔をしていた。息子も一緒にまわり、ナイスショットのたびに妻と二人でポーズをとった。</p>
+      <p>ラウンドを終えたあと、僕らは東名を走って横浜に帰った。カーナビの画面には、海老名と厚木までの距離が並んでいた。</p>
+      <div class="grid">
+        <figure class="full"><img src="images/p01.jpg" alt="朝のグリーンと旗" loading="lazy"><figcaption class="sans">朝いちばんのグリーン。</figcaption></figure>
+        <figure class="wide"><img src="images/f-p03.jpg" alt="ゴルフ場で並ぶ僕と妻" loading="lazy"><figcaption class="sans">スタート前の二人。</figcaption></figure>
+        <figure class="full"><img src="images/f-p04.jpg" alt="クラブを構える妻" loading="lazy"><figcaption class="sans">しましまのワンピース。</figcaption></figure>
+        <figure><img src="images/p02.jpg" alt="高台から見下ろすゴルフ場" loading="lazy"><figcaption class="sans">高台のコース。</figcaption></figure>
+        <figure><img src="images/f-p07.jpg" alt="並んでポーズをとる妻と息子" loading="lazy"><figcaption class="sans">妻と息子。</figcaption></figure>
+        <figure><img src="images/f-p08.jpg" alt="ピースをする息子と妻" loading="lazy"><figcaption class="sans">ナイスショットのあと。</figcaption></figure>
+        <figure><img src="images/p10.jpg" alt="眼下に広がる町と海" loading="lazy"><figcaption class="sans">駿河湾を見下ろす。</figcaption></figure>
+        <figure class="full"><img src="images/f-p11.jpg" alt="ティーグラウンドに立つ僕" loading="lazy"><figcaption class="sans">僕の番。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="end">
+  <div class="wrap">
+    <p>その夏、僕らはずいぶんたくさん出かけた。日焼けのあとが消えるまで、しばらくかかった。</p>
+    <p class="back sans"><a href="../">← 旅の記録の一覧へ</a>　<a href="../../">トップページへ</a></p>
+    <p class="back sans">2016年8月の写真から　文・写真　中野 年章</p>
+  </div>
+</footer>
+
+</body>
+</html>

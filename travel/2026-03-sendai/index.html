@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>三月の仙台、杜の都</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* VOICE: 静かな一人称の旅行記。写真が主役で、文章は余白に置く
+   IDEA: 旅先で書いた一冊の紀行文。各日は一章、写真は貼り込まれたプリント
+   PICTURE: 旅を代表する一枚を全幅の表紙に
+   COLOUR and TYPE: 白い紙と墨色の文字、旅の土地から取った差し色を一つ。Shippori Mincho＋Zen Kaku Gothic New
+   LAYOUT: 全幅の表紙、序文、日ごとの章（日付を左に大きく吊る）、写真は2列のグリッド */
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#16120f);--ink:light-dark(#2b211b,#eee4da);--mute:light-dark(#76665a,#b3a497);
+--river:light-dark(#2d5e86,#7aa9d6);--lotus:light-dark(#b8862c,#e2b767);--line:light-dark(#e7ddd3,#3a2f27);--paper:light-dark(#f6f1ec,#211b16)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.95 "Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;overflow-x:clip}
+a{color:inherit}
+.sans{font-family:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif}
+.cover{position:relative;min-height:min(88vh,760px);display:grid;align-items:end;color:#fff;background:#2b211b}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,10,0) 35%,rgba(20,14,10,.78))}
+.cover-in{position:relative;z-index:1;padding:clamp(28px,5vw,72px) max(5vw,16px);max-width:1240px;width:100%;margin:0 auto}
+.cover h1{font-size:clamp(34px,6vw,58px);line-height:1.15;margin:0 0 14px;font-weight:700;text-wrap:balance}
+.cover p{margin:0;font-size:15px;opacity:.92}
+.nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .scroll{display:flex;gap:6px;padding:8px max(5vw,16px);max-width:1240px;margin:0 auto;overflow-x:auto}
+.nav a{flex:none;text-decoration:none;font-size:14px;padding:10px 14px;border-radius:999px;color:var(--mute);min-height:44px;display:flex;align-items:center}
+.nav a:hover,.nav a:focus-visible{color:var(--ink);background:var(--paper);outline:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
+.lead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(40px,6vw,88px) 0}
+.lead p{margin:0 0 1.1em;max-width:34em}
+.map{background:var(--paper);border-radius:6px;padding:18px}
+.map svg{width:100%;height:auto;display:block}
+.map figcaption{font-size:13px;color:var(--mute);margin-top:8px}
+.day{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:clamp(16px,4vw,56px);padding:clamp(40px,6vw,80px) 0;border-top:1px solid var(--line)}
+.date{position:sticky;top:84px;align-self:start}
+.date b{display:block;font-size:clamp(40px,5vw,52px);line-height:1.05;font-weight:700;color:var(--river)}
+.date span{display:block;font-size:13px;color:var(--mute);margin-top:6px}
+.day h2{font-size:clamp(24px,3vw,32px);line-height:1.35;margin:0 0 6px;text-wrap:balance}
+.place{font-size:13px;color:var(--lotus);margin:0 0 22px}
+.text p{margin:0 0 1.1em;max-width:36em}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0 8px}
+.grid figure{margin:0}
+.grid .wide{grid-column:1/-1}
+.grid img{width:100%;height:100%;max-height:560px;object-fit:cover;display:block;border-radius:3px;background:var(--paper)}
+.grid .tall img{aspect-ratio:3/4}
+.grid figure:not(.tall):not(.wide) img{aspect-ratio:4/3}
+.grid .wide img{aspect-ratio:16/9;object-position:center 62%}
+.grid .full{grid-column:1/-1}.grid figure.full:not(.tall):not(.wide) img{aspect-ratio:auto;height:auto;max-height:640px;object-fit:contain;background:none;width:auto;max-width:100%;margin:0 auto}
+figcaption{font-size:13px;line-height:1.6;color:var(--mute);margin-top:6px}
+.end{background:var(--paper);padding:clamp(40px,6vw,80px) 0;margin-top:clamp(24px,4vw,48px)}
+.end p{max-width:36em;margin:0 0 1em}
+.end .back{font-size:14px;color:var(--mute)}
+img{transition:opacity .6s}
+@media(prefers-reduced-motion:reduce){img{transition:none}}
+@media(max-width:760px){.lead{grid-template-columns:minmax(0,1fr)}.day{grid-template-columns:minmax(0,1fr)}.date{position:static;display:flex;align-items:baseline;gap:12px}.date span{margin:0}}
+@media(max-width:480px){.grid{grid-template-columns:minmax(0,1fr)}.grid .tall img{aspect-ratio:4/5}body{font-size:16px}}
+.lead.solo{grid-template-columns:minmax(0,1fr)}.lead.solo p{max-width:38em}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <img src="images/p08.jpg" alt="青空の下の伊達政宗騎馬像">
+  <div class="cover-in">
+    <h1>三月の仙台、杜の都</h1>
+    <p class="sans">仙台・作並・笠間　2026年3月20日〜22日</p>
+  </div>
+</header>
+
+<nav class="nav sans" aria-label="日ごとの目次">
+  <div class="scroll">
+    <a href="#d1">3/21 青葉山</a><a href="#d2">3/22 帰り道</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section class="lead solo">
+    <div>
+      <p>2026年の春分の日の連休、僕と妻は仙台へ向かい、息子と落ち合った。三月の仙台はまだ風が冷たく、それでも空はすっかり春の青さだった。</p>
+    </div>
+  </section>
+
+  <section class="day" id="d1">
+    <div class="date"><b>3.21</b><span class="sans">土曜日</span></div>
+    <div class="text">
+      <h2>政宗公の見下ろす町</h2>
+      <p class="place sans">仙台駅 → 青葉山 → 作並</p>
+      <p>朝の仙台駅前で、息子が待っていた。ペデストリアンデッキの上は、休日の人たちでにぎわっていた。</p>
+      <p>それから青葉山へのぼった。馬にまたがった伊達政宗の像が、青空を背に町を見下ろしている。そのそばの神社では、妻と息子が額を寄せあって何かを熱心に読んでいた。午後は作並のほうまで足をのばし、息子と二人で写真を撮った。</p>
+      <div class="grid">
+        <figure><img src="images/f-p04.jpg" alt="仙台駅前に立つ息子" loading="lazy"><figcaption class="sans">仙台駅前で。</figcaption></figure>
+        <figure><img src="images/p05.jpg" alt="仙台駅前のビル群と青空" loading="lazy"><figcaption class="sans">杜の都の駅前。</figcaption></figure>
+        <figure class="wide"><img src="images/f-p09.jpg" alt="神社で何かを読む息子と妻" loading="lazy"><figcaption class="sans">神社で。</figcaption></figure>
+        <figure class="full"><img src="images/f-p17.jpg" alt="伊達政宗騎馬像の前に並ぶ僕と息子" loading="lazy"><figcaption class="sans">政宗公の像の前で。</figcaption></figure>
+        <figure class="wide"><img src="images/f-p10.jpg" alt="作並で並ぶ僕と息子" loading="lazy"><figcaption class="sans">作並で。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="d2">
+    <div class="date"><b>3.22</b><span class="sans">日曜日</span></div>
+    <div class="text">
+      <h2>ベンチと、くまの人形</h2>
+      <p class="place sans">仙台 → 笠間</p>
+      <p>翌朝、妻と息子はショッピングモールの前のベンチに並んで座った。そばには帽子をかぶったくまの人形が立っていた。どこか照れくさそうな顔をしていて、なんだか息子に似ていると思った。</p>
+      <p>帰り道、夕方には茨城の笠間で蕎麦を食べた。妻は湯呑みを両手で包んでいた。</p>
+      <div class="grid">
+        <figure><img src="images/f-p11.jpg" alt="モールの前のベンチに座る妻と息子" loading="lazy"><figcaption class="sans">ベンチの二人。</figcaption></figure>
+        <figure><img src="images/p12.jpg" alt="帽子をかぶったくまの人形" loading="lazy"><figcaption class="sans">くまの人形。</figcaption></figure>
+        <figure class="wide"><img src="images/f-p16.jpg" alt="蕎麦屋で湯呑みを持つ妻と僕" loading="lazy"><figcaption class="sans">帰り道の笠間で。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="end">
+  <div class="wrap">
+    <p>短い旅だった。でも、息子のいる町の空の色を知っておくことは、たぶん親にとって大事なことなのだと思う。</p>
+    <p class="back sans"><a href="../">← 旅の記録の一覧へ</a>　<a href="../../">トップページへ</a></p>
+    <p class="back sans">2026年3月の写真から　文・写真　中野 年章</p>
+  </div>
+</footer>
+
+</body>
+</html>

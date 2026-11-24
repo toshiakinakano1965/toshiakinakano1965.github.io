@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>八ヶ岳を越えて、昇仙峡へ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* VOICE: 静かな一人称の旅行記。写真が主役で、文章は余白に置く
+   IDEA: 旅先で書いた一冊の紀行文。各日は一章、写真は貼り込まれたプリント
+   PICTURE: 旅を代表する一枚を全幅の表紙に
+   COLOUR and TYPE: 白い紙と墨色の文字、旅の土地から取った差し色を一つ。Shippori Mincho＋Zen Kaku Gothic New
+   LAYOUT: 全幅の表紙、序文、日ごとの章（日付を左に大きく吊る）、写真は2列のグリッド */
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#16120f);--ink:light-dark(#2b211b,#eee4da);--mute:light-dark(#76665a,#b3a497);
+--river:light-dark(#3a6b3a,#88c287);--lotus:light-dark(#b5582a,#e99568);--line:light-dark(#e7ddd3,#3a2f27);--paper:light-dark(#f6f1ec,#211b16)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.95 "Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;overflow-x:clip}
+a{color:inherit}
+.sans{font-family:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif}
+.cover{position:relative;min-height:min(88vh,760px);display:grid;align-items:end;color:#fff;background:#2b211b}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,10,0) 35%,rgba(20,14,10,.78))}
+.cover-in{position:relative;z-index:1;padding:clamp(28px,5vw,72px) max(5vw,16px);max-width:1240px;width:100%;margin:0 auto}
+.cover h1{font-size:clamp(34px,6vw,58px);line-height:1.15;margin:0 0 14px;font-weight:700;text-wrap:balance}
+.cover p{margin:0;font-size:15px;opacity:.92}
+.nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .scroll{display:flex;gap:6px;padding:8px max(5vw,16px);max-width:1240px;margin:0 auto;overflow-x:auto}
+.nav a{flex:none;text-decoration:none;font-size:14px;padding:10px 14px;border-radius:999px;color:var(--mute);min-height:44px;display:flex;align-items:center}
+.nav a:hover,.nav a:focus-visible{color:var(--ink);background:var(--paper);outline:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
+.lead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(40px,6vw,88px) 0}
+.lead p{margin:0 0 1.1em;max-width:34em}
+.map{background:var(--paper);border-radius:6px;padding:18px}
+.map svg{width:100%;height:auto;display:block}
+.map figcaption{font-size:13px;color:var(--mute);margin-top:8px}
+.day{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:clamp(16px,4vw,56px);padding:clamp(40px,6vw,80px) 0;border-top:1px solid var(--line)}
+.date{position:sticky;top:84px;align-self:start}
+.date b{display:block;font-size:clamp(40px,5vw,52px);line-height:1.05;font-weight:700;color:var(--river)}
+.date span{display:block;font-size:13px;color:var(--mute);margin-top:6px}
+.day h2{font-size:clamp(24px,3vw,32px);line-height:1.35;margin:0 0 6px;text-wrap:balance}
+.place{font-size:13px;color:var(--lotus);margin:0 0 22px}
+.text p{margin:0 0 1.1em;max-width:36em}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0 8px}
+.grid figure{margin:0}
+.grid .wide{grid-column:1/-1}
+.grid img{width:100%;height:100%;max-height:560px;object-fit:cover;display:block;border-radius:3px;background:var(--paper)}
+.grid .tall img{aspect-ratio:3/4}
+.grid figure:not(.tall):not(.wide) img{aspect-ratio:4/3}
+.grid .wide img{aspect-ratio:16/9;object-position:center 62%}
+.grid .full{grid-column:1/-1}.grid figure.full:not(.tall):not(.wide) img{aspect-ratio:auto;height:auto;max-height:640px;object-fit:contain;background:none;width:auto;max-width:100%;margin:0 auto}
+figcaption{font-size:13px;line-height:1.6;color:var(--mute);margin-top:6px}
+.end{background:var(--paper);padding:clamp(40px,6vw,80px) 0;margin-top:clamp(24px,4vw,48px)}
+.end p{max-width:36em;margin:0 0 1em}
+.end .back{font-size:14px;color:var(--mute)}
+img{transition:opacity .6s}
+@media(prefers-reduced-motion:reduce){img{transition:none}}
+@media(max-width:760px){.lead{grid-template-columns:minmax(0,1fr)}.day{grid-template-columns:minmax(0,1fr)}.date{position:static;display:flex;align-items:baseline;gap:12px}.date span{margin:0}}
+@media(max-width:480px){.grid{grid-template-columns:minmax(0,1fr)}.grid .tall img{aspect-ratio:4/5}body{font-size:16px}}
+.lead.solo{grid-template-columns:minmax(0,1fr)}.lead.solo p{max-width:38em}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <img src="images/p03.jpg" alt="青空の下に広がる清里の牧場">
+  <div class="cover-in">
+    <h1>八ヶ岳を越えて、昇仙峡へ</h1>
+    <p class="sans">清里・小海・北八ヶ岳・昇仙峡　2021年8月10日〜13日</p>
+  </div>
+</header>
+
+<nav class="nav sans" aria-label="日ごとの目次">
+  <div class="scroll">
+    <a href="#d1">8/10 清里</a><a href="#d2">8/11 北八ヶ岳</a><a href="#d3">8/12 小海</a><a href="#d4">8/13 昇仙峡</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section class="lead solo">
+    <div>
+      <p>2021年の夏休みも、僕らは車で八ヶ岳へ向かった。前の年と同じ高原を、今度は少しだけ遠くまで。清里で牧場を眺め、小海の宿に泊まり、北八ヶ岳の岩の上にのぼり、最後は甲府の昇仙峡まで足をのばした。</p>
+    </div>
+  </section>
+
+  <section class="day" id="d1">
+    <div class="date"><b>8.10</b><span class="sans">火曜日</span></div>
+    <div class="text">
+      <h2>牧場のソフトクリーム</h2>
+      <p class="place sans">富士見 → 清里 → 小海</p>
+      <p>富士見を抜けて清里に着くと、夏の雲が牧場の上に大きく広がっていた。妻と二人でソフトクリームを手に自撮りをする。下の牧場では、牛たちがのんびり草を食んでいた。</p>
+      <p>夕方、小海の宿に着いた。芝生のベンチに妻と息子が並んで座り、三角屋根の小さな飾りの家が、夕方の光の中に立っていた。</p>
+      <div class="grid">
+        <figure><img src="images/p01.jpg" alt="石で作られた不思議なオブジェ" loading="lazy"><figcaption class="sans">富士見で見かけたオブジェ。</figcaption></figure>
+        <figure><img src="images/f-p02.jpg" alt="ソフトクリームを持って自撮りする僕と妻" loading="lazy"><figcaption class="sans">牧場のソフトクリーム。</figcaption></figure>
+        <figure><img src="images/f-p04.jpg" alt="芝生のベンチに並んで座る息子と妻" loading="lazy"><figcaption class="sans">宿のベンチで。</figcaption></figure>
+        <figure><img src="images/p05.jpg" alt="三角屋根の飾りの家" loading="lazy"><figcaption class="sans">三角屋根の小さな家。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="d2">
+    <div class="date"><b>8.11</b><span class="sans">水曜日</span></div>
+    <div class="text">
+      <h2>岩の上の眺め</h2>
+      <p class="place sans">北八ヶ岳</p>
+      <p>翌日は北八ヶ岳の森を歩いた。苔の森を抜けると、大きな岩がごろごろと積み重なった場所に出た。岩の上によじのぼると、目の前が一気にひらけた。遠くの山並みと、その下にたまった雲が、地図のように見渡せた。妻は岩につかまりながら、けっこう楽しそうだった。</p>
+      <div class="grid">
+        <figure><img src="images/p06.jpg" alt="雲のかかる険しい山並み" loading="lazy"><figcaption class="sans">北八ヶ岳の山並み。</figcaption></figure>
+        <figure><img src="images/p07.jpg" alt="大きな岩と雲海" loading="lazy"><figcaption class="sans">岩の上からの眺め。</figcaption></figure>
+        <figure class="full"><img src="images/f-p08.jpg" alt="岩の上に座る妻" loading="lazy"><figcaption class="sans">岩の上の妻。</figcaption></figure>
+        <figure class="wide"><img src="images/p09.jpg" alt="岩の積み重なった斜面と遠くの山" loading="lazy"><figcaption class="sans">ごろごろの岩。</figcaption></figure>
+        <figure class="full"><img src="images/f-p10.jpg" alt="岩の上に並ぶ息子と妻" loading="lazy"><figcaption class="sans">岩の上で、二人。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="d3">
+    <div class="date"><b>8.12</b><span class="sans">木曜日</span></div>
+    <div class="text">
+      <h2>霧の高原</h2>
+      <p class="place sans">南牧・小海</p>
+      <p>この日は朝から雲が低く、夕方には高原全体が霧に包まれた。霧の中に浮かぶコテージの屋根は、まるで遠い国の村のようだった。夜は宿のレストランで、妻と二人でゆっくりグラスを傾けた。</p>
+      <div class="grid">
+        <figure class="wide"><img src="images/p11.jpg" alt="草地に立つ記念碑" loading="lazy"><figcaption class="sans">高原の記念碑。</figcaption></figure>
+        <figure class="full"><img src="images/p12.jpg" alt="森の中の古い石碑と案内板" loading="lazy"><figcaption class="sans">森の石碑。</figcaption></figure>
+        <figure><img src="images/p13.jpg" alt="霧に包まれたコテージ" loading="lazy"><figcaption class="sans">霧のコテージ。</figcaption></figure>
+        <figure><img src="images/f-p14.jpg" alt="レストランのテーブルで並ぶ妻と僕" loading="lazy"><figcaption class="sans">宿のディナー。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="d4">
+    <div class="date"><b>8.13</b><span class="sans">金曜日</span></div>
+    <div class="text">
+      <h2>石の門</h2>
+      <p class="place sans">リゾナーレ八ヶ岳 → 昇仙峡</p>
+      <p>最終日、雨上がりのリゾナーレ八ヶ岳に立ち寄った。それから山を下りて、甲府の昇仙峡へ。花崗岩の谷のあいだを、仙娥滝が白く落ちていた。帰り道、大きな岩がアーチになった石門の下で、妻と並んで最後の写真を撮った。</p>
+      <div class="grid">
+        <figure class="wide"><img src="images/p15.jpg" alt="雨上がりのリゾナーレ八ヶ岳の通り" loading="lazy"><figcaption class="sans">雨上がりのリゾナーレ。</figcaption></figure>
+        <figure class="full"><img src="images/p16.jpg" alt="木々のあいだから見える滝" loading="lazy"><figcaption class="sans">緑の中の滝。</figcaption></figure>
+        <figure class="wide"><img src="images/p17.jpg" alt="岩壁のあいだを落ちる仙娥滝" loading="lazy"><figcaption class="sans">仙娥滝。</figcaption></figure>
+        <figure class="full"><img src="images/f-p18.jpg" alt="石門の下で並ぶ僕と妻" loading="lazy"><figcaption class="sans">石門の下で。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="end">
+  <div class="wrap">
+    <p>八ヶ岳はいつも、僕らをちょっとだけ遠くまで連れていってくれる。そして必ず、ちゃんと帰り道を残しておいてくれる。</p>
+    <p class="back sans"><a href="../">← 旅の記録の一覧へ</a>　<a href="../../">トップページへ</a></p>
+    <p class="back sans">2021年8月の写真から　文・写真　中野 年章</p>
+  </div>
+</footer>
+
+</body>
+</html>
