@@ -72,13 +72,16 @@ figcaption{font-family:var(--sans);font-size:12px;color:var(--sub);margin-top:8p
 .inst .k{font-family:var(--sans);font-size:11px;letter-spacing:.25em;color:var(--brass)}
 .inst h3{font-weight:600;font-size:18px;margin:4px 0 4px;line-height:1.5}
 .inst p{margin:0;font-size:13.5px;color:var(--sub);line-height:1.8}
+.inst .plain{background:transparent;border:1px dashed var(--line);border-radius:12px;padding:18px 18px 14px}
+.part{margin:64px 0 -24px;padding:14px 0;border-top:2px solid var(--navy);border-bottom:1px solid var(--line);font-size:17px;font-weight:600;letter-spacing:.08em;scroll-margin-top:48px}
+.part span{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.35em;color:var(--brass);font-weight:400}
 .nophoto{display:flex;align-items:center;justify-content:center;aspect-ratio:4/3;border-radius:6px;color:#fff;font-family:var(--sans);font-size:12px;letter-spacing:.2em;opacity:.92}
 .hero.plain{min-height:70svh}
 </style>
 </head>
 <body>
 
-<nav class="topbar"><a href="../">← 中野年章</a>　<a href="../music/">音楽と楽器</a></nav>
+<nav class="topbar"><a href="../">← 中野年章</a>　<a href="#essay">エッセイ</a>　<a href="#instruments">楽器リスト</a></nav>
 
 <header class="hero">
   <img src="../tenor/img/live.jpg" alt="ライブハウスのステージで演奏するビッグバンド Swing Jokers">
@@ -90,6 +93,8 @@ figcaption{font-family:var(--sans);font-size:12px;color:var(--sub);margin-top:8p
 </header>
 
 <main>
+
+<div class="part" id="essay"><span>PART 1</span>エッセイ ― 音楽のこと</div>
 
 <section class="sec rv">
   <div class="yr">FIRST, A GUITAR</div>
@@ -119,7 +124,7 @@ figcaption{font-family:var(--sans);font-size:12px;color:var(--sub);margin-top:8p
 </section>
 
 <section class="sec rv">
-  <div class="yr">BIG BAND · SINGJOKERS</div>
+  <div class="yr">BIG BAND · SWING JOKERS</div>
   <h2>日曜の夜は、<br>ビッグバンドで。</h2>
   <p>今はビッグバンド Swing Jokers でテナーサックスを吹いている。練習は毎週日曜の夜。十数人がそれぞれ違う楽器を持ち寄って、譜面の上でひとつの音楽になろうとする。</p>
   <p>ヨコハマ・ジャズ・プロムナードのようなステージに立つこともある。客席の前で吹く数分間のために、僕たちは何十回も同じ小節をさらう。それは決して効率のいい話ではない。でも、たぶんそれでいいのだと思う。</p>
@@ -142,14 +147,25 @@ figcaption{font-family:var(--sans);font-size:12px;color:var(--sub);margin-top:8p
   <hr class="wave">
 </section>
 
+<div class="part" id="instruments"><span>PART 2</span>楽器リスト ― 手元にある楽器たち</div>
+
 <section class="sec rv">
-  <div class="yr">INSTRUMENTS</div>
-  <h2>手元にある楽器たち</h2>
+  <div class="yr">SAXOPHONE</div>
+  <h2>サックス</h2>
   <div class="inst">
     <a href="../eastman/"><div class="k">TENOR SAX · 2026</div><h3>Eastman ETS852NL</h3><p>新しいテナーと、金のマウスピースとコードのリガチャー。</p></a>
     <a href="../selmer/"><div class="k">TENOR SAX · 1988</div><h3>Selmer SA80 Serie II</h3><p>社会人二年目に買った、いちばん古い友人。</p></a>
-    <a href="../lespaul/"><div class="k">GUITAR · 2020</div><h3>Gibson 1960 Les Paul</h3><p>高校生のころに憧れたモデルの、本物のほう。</p></a>
-    <a href="../stratocaster/"><div class="k">GUITAR · 2021</div><h3>Fender Stratocaster</h3><p>白いボディの、もう一本のエレキギター。</p></a>
+  </div>
+</section>
+
+<section class="sec rv">
+  <div class="yr">GUITAR</div>
+  <h2>ギター</h2>
+  <div class="inst">
+    <a href="../lespaul/"><div class="k">ELECTRIC · 2020</div><h3>Gibson 1960 Les Paul</h3><p>高校生のころに憧れたモデルの、本物のほう。</p></a>
+    <a href="../stratocaster/"><div class="k">ELECTRIC · 2021</div><h3>Fender Stratocaster</h3><p>白いボディの、もう一本のエレキギター。</p></a>
+    <div class="plain"><div class="k">ACOUSTIC</div><h3>ヤマハ アコースティックギター</h3><p>ソファの横に立てかけてある一本。クラプトンの楽譜集と一緒に。</p></div>
+    <div class="plain"><div class="k">CLASSICAL</div><h3>ガットギター</h3><p>ナイロン弦の、やわらかい音がする一本。</p></div>
   </div>
 </section>
 
