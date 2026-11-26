@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>駒ヶ岳の上の、冬の青 ― 山歩きの記録</title>
+<meta name="description" content="雲ひとつない十二月、駒ヶ岳の草原から富士山と芦ノ湖を見下ろした。">
+<meta property="og:title" content="駒ヶ岳の上の、冬の青">
+<meta property="og:image" content="https://toshiaki-nakano.com/hiking/2023-12-komagatake/images/cover.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#16120f);--ink:light-dark(#2b211b,#eee4da);--mute:light-dark(#76665a,#b3a497);
+--river:light-dark(#b07d12,#e0b54a);--lotus:light-dark(#2a7a78,#72c7c2);--line:light-dark(#e7ddd3,#3a2f27);--paper:light-dark(#f6f1ec,#211b16)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.95 "Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;overflow-x:clip}
+a{color:inherit}
+.sans{font-family:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif}
+.cover{position:relative;min-height:min(88vh,760px);display:grid;align-items:end;color:#fff;background:#2b211b}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,10,0) 35%,rgba(20,14,10,.78))}
+.cover-in{position:relative;z-index:1;padding:clamp(28px,5vw,72px) max(5vw,16px);max-width:1240px;width:100%;margin:0 auto}
+.cover h1{font-size:clamp(34px,6vw,58px);line-height:1.15;margin:0 0 14px;font-weight:700;text-wrap:balance}
+.cover p{margin:0;font-size:15px;opacity:.92}
+.nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .scroll{display:flex;gap:6px;padding:8px max(5vw,16px);max-width:1240px;margin:0 auto;overflow-x:auto}
+.nav a{flex:none;text-decoration:none;font-size:14px;padding:10px 14px;border-radius:999px;color:var(--mute);min-height:44px;display:flex;align-items:center}
+.nav a:hover,.nav a:focus-visible{color:var(--ink);background:var(--paper);outline:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
+.lead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(40px,6vw,88px) 0}
+.lead p{margin:0 0 1.1em;max-width:34em}
+.map{background:var(--paper);border-radius:6px;padding:18px}
+.map svg{width:100%;height:auto;display:block}
+.map figcaption{font-size:13px;color:var(--mute);margin-top:8px}
+.day{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:clamp(16px,4vw,56px);padding:clamp(40px,6vw,80px) 0;border-top:1px solid var(--line)}
+.date{position:sticky;top:84px;align-self:start}
+.date b{display:block;font-size:clamp(40px,5vw,52px);line-height:1.05;font-weight:700;color:var(--river)}
+.date span{display:block;font-size:13px;color:var(--mute);margin-top:6px}
+.day h2{font-size:clamp(24px,3vw,32px);line-height:1.35;margin:0 0 6px;text-wrap:balance}
+.place{font-size:13px;color:var(--lotus);margin:0 0 22px}
+.text p{margin:0 0 1.1em;max-width:36em}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0 8px}
+.grid figure{margin:0}
+.grid .wide{grid-column:1/-1}
+.grid img{width:100%;height:100%;max-height:560px;object-fit:cover;display:block;border-radius:3px;background:var(--paper)}
+.grid .tall img{aspect-ratio:3/4}
+.grid figure:not(.tall):not(.wide) img{aspect-ratio:4/3}
+.grid .wide img{aspect-ratio:16/9;object-position:center 62%}
+.grid .full{grid-column:1/-1}.grid figure.full:not(.tall):not(.wide) img{aspect-ratio:auto;height:auto;max-height:640px;object-fit:contain;background:none;width:auto;max-width:100%;margin:0 auto}
+figcaption{font-size:13px;line-height:1.6;color:var(--mute);margin-top:6px}
+.end{background:var(--paper);padding:clamp(40px,6vw,80px) 0;margin-top:clamp(24px,4vw,48px)}
+.end p{max-width:36em;margin:0 0 1em}
+.end .back{font-size:14px;color:var(--mute)}
+img{transition:opacity .6s}
+@media(prefers-reduced-motion:reduce){img{transition:none}}
+@media(max-width:760px){.lead{grid-template-columns:minmax(0,1fr)}.day{grid-template-columns:minmax(0,1fr)}.date{position:static;display:flex;align-items:baseline;gap:12px}.date span{margin:0}}
+@media(max-width:480px){.grid{grid-template-columns:minmax(0,1fr)}.grid .tall img{aspect-ratio:4/5}body{font-size:16px}}
+.kicker{font-size:12px;letter-spacing:.4em;opacity:.85;margin:0 0 8px!important}
+.date span+span{margin-top:2px}
+
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <img src="images/cover.jpg" alt="山頂から見下ろす光る芦ノ湖">
+  <div class="cover-in">
+    <p class="kicker sans">HIKING</p>
+    <h1>駒ヶ岳の上の、冬の青</h1>
+    <p class="sans">箱根　箱根園 → 駒ヶ岳 → 芦ノ湖　2023年12月9日</p>
+  </div>
+</header>
+
+<nav class="nav sans" aria-label="サイト内の移動"><div class="scroll"><a href="../">← 山歩きの記録</a><a href="../../">中野年章</a></div></nav>
+
+<main class="wrap">
+  <section class="day">
+    <div class="date"><b>12.9</b><span class="sans">2023年　土曜日</span><span class="sans">写真の時刻　11:47–15:42</span></div>
+    <div class="text">
+      <h2>駒ヶ岳の上の、冬の青</h2>
+      <p class="place sans">箱根　箱根園 → 駒ヶ岳 → 芦ノ湖</p>
+      <p>十二月の、雲ひとつない土曜日。芦ノ湖のほとりの箱根園から、ロープウェイで駒ヶ岳に上がった。歩いた距離は、正直に言ってたいしたことはない。でも山頂の枯れ草の原っぱに立つと、そんなことはどうでもよくなった。</p>
+      <p>目の前には雪をかぶった富士山がいて、振り返ると芦ノ湖が銀色に光っていた。風は冷たかったけれど、空は冗談みたいに青かった。</p>
+      <p>下りてからは湖のほとりを歩いた。海賊船がのんびりと湖を横切っていく。最後に、古い御殿のような建物の前で妻の写真を撮った。</p>
+      <div class="grid">
+        <figure class="wide"><img src="images/p01.jpg" alt="青空の下の駒ヶ岳の山頂" width="1024" height="768" loading="lazy"><figcaption class="sans">駒ヶ岳を見上げる。</figcaption></figure>
+        <figure><img src="images/p02.jpg" alt="芦ノ湖のほとりに立つ妻" width="1024" height="768" loading="lazy"><figcaption class="sans">芦ノ湖のほとりの妻。</figcaption></figure>
+        <figure><img src="images/p03.jpg" alt="枯れ草の原っぱの向こうの富士山" width="1024" height="768" loading="lazy"><figcaption class="sans">山頂の原っぱと富士山。</figcaption></figure>
+        <figure><img src="images/p04.jpg" alt="富士山を背にした僕と妻" width="1024" height="768" loading="lazy"><figcaption class="sans">富士山を背に。</figcaption></figure>
+        <figure class="wide"><img src="images/p05.jpg" alt="山頂から見下ろす光る芦ノ湖" width="1024" height="768" loading="lazy"><figcaption class="sans">芦ノ湖を見下ろす。</figcaption></figure>
+        <figure><img src="images/p06.jpg" alt="芦ノ湖を進む海賊船" width="1086" height="724" loading="lazy"><figcaption class="sans">湖を横切る海賊船。</figcaption></figure>
+        <figure><img src="images/p07.jpg" alt="芦ノ湖と遠くの富士山" width="1086" height="724" loading="lazy"><figcaption class="sans">湖と富士山。</figcaption></figure>
+        <figure><img src="images/p08.jpg" alt="和風の古い建物の前に立つ妻" width="1024" height="768" loading="lazy"><figcaption class="sans">御殿の前の妻。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="end">
+  <div class="wrap">
+    <p class="back sans"><a href="../">← 山歩きの記録の一覧へ</a>　<a href="../../">トップページへ</a></p>
+    <p class="back sans">2023年12月9日の写真から　文・写真　中野 年章</p>
+  </div>
+</footer>
+
+</body>
+</html>

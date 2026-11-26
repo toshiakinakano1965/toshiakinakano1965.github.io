@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>足柄峠と、夕日の滝 ― 山歩きの記録</title>
+<meta name="description" content="ゴールデンウィークの午後、古い峠の石碑をめぐり、新緑の中の細く長い滝へ。">
+<meta property="og:title" content="足柄峠と、夕日の滝">
+<meta property="og:image" content="https://toshiaki-nakano.com/hiking/2021-05-ashigara/images/cover.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#16120f);--ink:light-dark(#2b211b,#eee4da);--mute:light-dark(#76665a,#b3a497);
+--river:light-dark(#b07d12,#e0b54a);--lotus:light-dark(#2a7a78,#72c7c2);--line:light-dark(#e7ddd3,#3a2f27);--paper:light-dark(#f6f1ec,#211b16)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.95 "Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;overflow-x:clip}
+a{color:inherit}
+.sans{font-family:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif}
+.cover{position:relative;min-height:min(88vh,760px);display:grid;align-items:end;color:#fff;background:#2b211b}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,10,0) 35%,rgba(20,14,10,.78))}
+.cover-in{position:relative;z-index:1;padding:clamp(28px,5vw,72px) max(5vw,16px);max-width:1240px;width:100%;margin:0 auto}
+.cover h1{font-size:clamp(34px,6vw,58px);line-height:1.15;margin:0 0 14px;font-weight:700;text-wrap:balance}
+.cover p{margin:0;font-size:15px;opacity:.92}
+.nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .scroll{display:flex;gap:6px;padding:8px max(5vw,16px);max-width:1240px;margin:0 auto;overflow-x:auto}
+.nav a{flex:none;text-decoration:none;font-size:14px;padding:10px 14px;border-radius:999px;color:var(--mute);min-height:44px;display:flex;align-items:center}
+.nav a:hover,.nav a:focus-visible{color:var(--ink);background:var(--paper);outline:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
+.lead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(40px,6vw,88px) 0}
+.lead p{margin:0 0 1.1em;max-width:34em}
+.map{background:var(--paper);border-radius:6px;padding:18px}
+.map svg{width:100%;height:auto;display:block}
+.map figcaption{font-size:13px;color:var(--mute);margin-top:8px}
+.day{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:clamp(16px,4vw,56px);padding:clamp(40px,6vw,80px) 0;border-top:1px solid var(--line)}
+.date{position:sticky;top:84px;align-self:start}
+.date b{display:block;font-size:clamp(40px,5vw,52px);line-height:1.05;font-weight:700;color:var(--river)}
+.date span{display:block;font-size:13px;color:var(--mute);margin-top:6px}
+.day h2{font-size:clamp(24px,3vw,32px);line-height:1.35;margin:0 0 6px;text-wrap:balance}
+.place{font-size:13px;color:var(--lotus);margin:0 0 22px}
+.text p{margin:0 0 1.1em;max-width:36em}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0 8px}
+.grid figure{margin:0}
+.grid .wide{grid-column:1/-1}
+.grid img{width:100%;height:100%;max-height:560px;object-fit:cover;display:block;border-radius:3px;background:var(--paper)}
+.grid .tall img{aspect-ratio:3/4}
+.grid figure:not(.tall):not(.wide) img{aspect-ratio:4/3}
+.grid .wide img{aspect-ratio:16/9;object-position:center 62%}
+.grid .full{grid-column:1/-1}.grid figure.full:not(.tall):not(.wide) img{aspect-ratio:auto;height:auto;max-height:640px;object-fit:contain;background:none;width:auto;max-width:100%;margin:0 auto}
+figcaption{font-size:13px;line-height:1.6;color:var(--mute);margin-top:6px}
+.end{background:var(--paper);padding:clamp(40px,6vw,80px) 0;margin-top:clamp(24px,4vw,48px)}
+.end p{max-width:36em;margin:0 0 1em}
+.end .back{font-size:14px;color:var(--mute)}
+img{transition:opacity .6s}
+@media(prefers-reduced-motion:reduce){img{transition:none}}
+@media(max-width:760px){.lead{grid-template-columns:minmax(0,1fr)}.day{grid-template-columns:minmax(0,1fr)}.date{position:static;display:flex;align-items:baseline;gap:12px}.date span{margin:0}}
+@media(max-width:480px){.grid{grid-template-columns:minmax(0,1fr)}.grid .tall img{aspect-ratio:4/5}body{font-size:16px}}
+.kicker{font-size:12px;letter-spacing:.4em;opacity:.85;margin:0 0 8px!important}
+.date span+span{margin-top:2px}
+
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <img src="images/cover.jpg" alt="新緑の山並みと遠くの町">
+  <div class="cover-in">
+    <p class="kicker sans">HIKING</p>
+    <h1>足柄峠と、夕日の滝</h1>
+    <p class="sans">南足柄・小山町　足柄峠 → 夕日の滝　2021年5月3日</p>
+  </div>
+</header>
+
+<nav class="nav sans" aria-label="サイト内の移動"><div class="scroll"><a href="../">← 山歩きの記録</a><a href="../../">中野年章</a></div></nav>
+
+<main class="wrap">
+  <section class="day">
+    <div class="date"><b>5.3</b><span class="sans">2021年　月曜日</span><span class="sans">写真の時刻　14:54–16:47</span></div>
+    <div class="text">
+      <h2>足柄峠と、夕日の滝</h2>
+      <p class="place sans">南足柄・小山町　足柄峠 → 夕日の滝</p>
+      <p>ゴールデンウィークの一日、足柄峠まで出かけた。都がまだ西にあった頃から、人が東と西を行き来してきた古い峠だ。新緑の木陰には、文字の刻まれた石碑がいくつも立っていた。</p>
+      <p>峠のそばからは、若い緑の山並みと遠くの町が見えた。五月の午後の光は強くて、石碑の影がくっきりと草の上に落ちていた。</p>
+      <p>帰りに夕日の滝へ寄った。細く長い滝が、まっすぐ下の淵へ落ちてくる。しぶきのかかる場所に立つと、さっきまでの日差しが嘘のようにひんやりした。</p>
+      <div class="grid">
+        <figure class="tall"><img src="images/p01.jpg" alt="文字の刻まれた古い石碑" width="960" height="1280" loading="lazy"><figcaption class="sans">峠の石碑。</figcaption></figure>
+        <figure><img src="images/p02.jpg" alt="新緑の山並みと遠くの町" width="1280" height="960" loading="lazy"><figcaption class="sans">新緑の山並み。</figcaption></figure>
+        <figure><img src="images/p03.jpg" alt="足柄峠と書かれた標柱の前の妻" width="1280" height="960" loading="lazy"><figcaption class="sans">足柄峠の標柱と妻。</figcaption></figure>
+        <figure><img src="images/p04.jpg" alt="丸い台座の上に立つ記念碑" width="1280" height="960" loading="lazy"><figcaption class="sans">峠の記念碑。</figcaption></figure>
+        <figure><img src="images/p05.jpg" alt="強い日差しの中、石碑の横に立つ僕" width="1280" height="960" loading="lazy"><figcaption class="sans">逆光の中の僕。</figcaption></figure>
+        <figure class="tall"><img src="images/p06.jpg" alt="夕日の滝と、文化財の標柱の横に立つ僕" width="960" height="1280" loading="lazy"><figcaption class="sans">夕日の滝の標柱と僕。</figcaption></figure>
+        <figure class="tall"><img src="images/p07.jpg" alt="滝の近くで並ぶ妻と僕" width="962" height="1280" loading="lazy"><figcaption class="sans">妻と僕。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="end">
+  <div class="wrap">
+    <p class="back sans"><a href="../">← 山歩きの記録の一覧へ</a>　<a href="../../">トップページへ</a></p>
+    <p class="back sans">2021年5月3日の写真から　文・写真　中野 年章</p>
+  </div>
+</footer>
+
+</body>
+</html>

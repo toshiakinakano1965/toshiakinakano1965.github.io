@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>日向の森から、大山の中腹へ ― 山歩きの記録</title>
+<meta name="description" content="大山の東側、日向の森から。細い滝、相模平野の見晴らし、注連縄の大杉。">
+<meta property="og:title" content="日向の森から、大山の中腹へ">
+<meta property="og:image" content="https://toshiaki-nakano.com/hiking/2021-10-hinata/images/cover.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#16120f);--ink:light-dark(#2b211b,#eee4da);--mute:light-dark(#76665a,#b3a497);
+--river:light-dark(#b07d12,#e0b54a);--lotus:light-dark(#2a7a78,#72c7c2);--line:light-dark(#e7ddd3,#3a2f27);--paper:light-dark(#f6f1ec,#211b16)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.95 "Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;overflow-x:clip}
+a{color:inherit}
+.sans{font-family:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif}
+.cover{position:relative;min-height:min(88vh,760px);display:grid;align-items:end;color:#fff;background:#2b211b}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,10,0) 35%,rgba(20,14,10,.78))}
+.cover-in{position:relative;z-index:1;padding:clamp(28px,5vw,72px) max(5vw,16px);max-width:1240px;width:100%;margin:0 auto}
+.cover h1{font-size:clamp(34px,6vw,58px);line-height:1.15;margin:0 0 14px;font-weight:700;text-wrap:balance}
+.cover p{margin:0;font-size:15px;opacity:.92}
+.nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .scroll{display:flex;gap:6px;padding:8px max(5vw,16px);max-width:1240px;margin:0 auto;overflow-x:auto}
+.nav a{flex:none;text-decoration:none;font-size:14px;padding:10px 14px;border-radius:999px;color:var(--mute);min-height:44px;display:flex;align-items:center}
+.nav a:hover,.nav a:focus-visible{color:var(--ink);background:var(--paper);outline:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
+.lead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(40px,6vw,88px) 0}
+.lead p{margin:0 0 1.1em;max-width:34em}
+.map{background:var(--paper);border-radius:6px;padding:18px}
+.map svg{width:100%;height:auto;display:block}
+.map figcaption{font-size:13px;color:var(--mute);margin-top:8px}
+.day{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:clamp(16px,4vw,56px);padding:clamp(40px,6vw,80px) 0;border-top:1px solid var(--line)}
+.date{position:sticky;top:84px;align-self:start}
+.date b{display:block;font-size:clamp(40px,5vw,52px);line-height:1.05;font-weight:700;color:var(--river)}
+.date span{display:block;font-size:13px;color:var(--mute);margin-top:6px}
+.day h2{font-size:clamp(24px,3vw,32px);line-height:1.35;margin:0 0 6px;text-wrap:balance}
+.place{font-size:13px;color:var(--lotus);margin:0 0 22px}
+.text p{margin:0 0 1.1em;max-width:36em}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0 8px}
+.grid figure{margin:0}
+.grid .wide{grid-column:1/-1}
+.grid img{width:100%;height:100%;max-height:560px;object-fit:cover;display:block;border-radius:3px;background:var(--paper)}
+.grid .tall img{aspect-ratio:3/4}
+.grid figure:not(.tall):not(.wide) img{aspect-ratio:4/3}
+.grid .wide img{aspect-ratio:16/9;object-position:center 62%}
+.grid .full{grid-column:1/-1}.grid figure.full:not(.tall):not(.wide) img{aspect-ratio:auto;height:auto;max-height:640px;object-fit:contain;background:none;width:auto;max-width:100%;margin:0 auto}
+figcaption{font-size:13px;line-height:1.6;color:var(--mute);margin-top:6px}
+.end{background:var(--paper);padding:clamp(40px,6vw,80px) 0;margin-top:clamp(24px,4vw,48px)}
+.end p{max-width:36em;margin:0 0 1em}
+.end .back{font-size:14px;color:var(--mute)}
+img{transition:opacity .6s}
+@media(prefers-reduced-motion:reduce){img{transition:none}}
+@media(max-width:760px){.lead{grid-template-columns:minmax(0,1fr)}.day{grid-template-columns:minmax(0,1fr)}.date{position:static;display:flex;align-items:baseline;gap:12px}.date span{margin:0}}
+@media(max-width:480px){.grid{grid-template-columns:minmax(0,1fr)}.grid .tall img{aspect-ratio:4/5}body{font-size:16px}}
+.kicker{font-size:12px;letter-spacing:.4em;opacity:.85;margin:0 0 8px!important}
+.date span+span{margin-top:2px}
+
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <img src="images/cover.jpg" alt="相模平野を背にした妻">
+  <div class="cover-in">
+    <p class="kicker sans">HIKING</p>
+    <h1>日向の森から、大山の中腹へ</h1>
+    <p class="sans">伊勢原　日向ふれあいの森 → 大山　2021年10月2日</p>
+  </div>
+</header>
+
+<nav class="nav sans" aria-label="サイト内の移動"><div class="scroll"><a href="../">← 山歩きの記録</a><a href="../../">中野年章</a></div></nav>
+
+<main class="wrap">
+  <section class="day">
+    <div class="date"><b>10.2</b><span class="sans">2021年　土曜日</span><span class="sans">写真の時刻　11:03–16:29</span></div>
+    <div class="text">
+      <h2>日向の森から、大山の中腹へ</h2>
+      <p class="place sans">伊勢原　日向ふれあいの森 → 大山</p>
+      <p>十月はじめの土曜日、大山の東側にある日向の森から歩いた。駐車場はもう車でいっぱいで、案内図の横には熊出没注意の札が出ていた。</p>
+      <p>沢沿いの道には細い滝がかかっていた。妻はその前で両手を広げてみせた。登りきった先の見晴らしからは、相模平野と遠くの海がひと続きに見えた。</p>
+      <p>帰り道で、注連縄を巻いた大きな杉に会った。何百年もそこに立っている木の前では、僕らの一日なんてほんの一瞬のことだ。そう思うと、少し気が楽になった。</p>
+      <div class="grid">
+        <figure><img src="images/p01.jpg" alt="ふれあいの森の案内図と熊出没注意の札" width="1024" height="768" loading="lazy"><figcaption class="sans">日向ふれあいの森の案内図。</figcaption></figure>
+        <figure><img src="images/p02.jpg" alt="細い滝の前で両手を広げる妻" width="1024" height="768" loading="lazy"><figcaption class="sans">沢の細い滝と妻。</figcaption></figure>
+        <figure class="wide"><img src="images/p03.jpg" alt="相模平野を背にした妻" width="1024" height="768" loading="lazy"><figcaption class="sans">見晴らしの場所で。</figcaption></figure>
+        <figure><img src="images/p04.jpg" alt="遠くの平野を背に並ぶ妻と僕" width="1022" height="767" loading="lazy"><figcaption class="sans">妻と僕。</figcaption></figure>
+        <figure><img src="images/p05.jpg" alt="注連縄を巻いた大杉と妻" width="1024" height="768" loading="lazy"><figcaption class="sans">注連縄の大杉。</figcaption></figure>
+        <figure class="tall"><img src="images/p06.jpg" alt="見上げた大杉の幹と枝" width="768" height="1024" loading="lazy"><figcaption class="sans">大杉を見上げる。</figcaption></figure>
+        <figure><img src="images/p07.jpg" alt="森の中の苔むした堰堤" width="1024" height="768" loading="lazy"><figcaption class="sans">苔むした堰堤。</figcaption></figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="end">
+  <div class="wrap">
+    <p class="back sans"><a href="../">← 山歩きの記録の一覧へ</a>　<a href="../../">トップページへ</a></p>
+    <p class="back sans">2021年10月2日の写真から　文・写真　中野 年章</p>
+  </div>
+</footer>
+
+</body>
+</html>
