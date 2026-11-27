@@ -82,6 +82,12 @@ hr.wave{border:0;height:22px;margin:40px auto 0;max-width:120px;background:radia
 
 footer{text-align:center;font-family:var(--sans);font-size:12px;color:var(--sub);padding:64px 20px 48px;letter-spacing:.1em}
 footer a{color:var(--sea)}
+.fnav{list-style:none;padding:0;margin:0 auto 36px;max-width:560px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:left}
+.fnav li{border-top:1px solid var(--line);padding:8px 2px 0;line-height:1.6}
+.fnav span{display:block;font-size:10px;letter-spacing:.25em;color:var(--brass)}
+.fnav a{text-decoration:none;font-weight:600;letter-spacing:.05em}
+@media (max-width:560px){.fnav{grid-template-columns:repeat(2,1fr)}}
+[id^=ch],#now{scroll-margin-top:16px}
 
 /* reveal on scroll */
 .rv{opacity:0;transform:translateY(18px);transition:opacity 1s ease,transform 1s ease}
@@ -121,7 +127,7 @@ footer a{color:var(--sea)}
   </ul>
 </section>
 
-<section class="rv">
+<section class="rv" id="ch1">
   <div class="chap">CHAPTER 1</div>
   <h2>四十年吹いても、<br>まだ探している。</h2>
   <p>十八歳でアルトサックスを手にしてから、気がつけば四十年が過ぎていた。そのあいだに僕はテナーに持ち替え、何本かの楽器と別れ、いくつかのマウスピースと出会った。<a href="selmer/">社会人二年目に買ったセルマー</a>は、今でも僕のいちばん古い友人のひとりだ。</p>
@@ -133,7 +139,7 @@ footer a{color:var(--sea)}
   <hr class="wave">
 </section>
 
-<section class="rv">
+<section class="rv" id="ch2">
   <div class="chap">CHAPTER 2</div>
   <h2>五十歳、ヨットに乗る。</h2>
   <p>五十歳の春、僕は転職先の先輩に誘われて、生まれて初めてヨットに乗った。</p>
@@ -145,7 +151,7 @@ footer a{color:var(--sea)}
   <hr class="wave">
 </section>
 
-<section class="rv">
+<section class="rv" id="ch3">
   <div class="chap">CHAPTER 3</div>
   <h2>頂上では、<br>なぜか両手を上げてしまう。</h2>
   <p>山頂に着くと、なぜか両手を上げてしまう。誰に頼まれたわけでもないのに。</p>
@@ -154,7 +160,7 @@ footer a{color:var(--sea)}
   <hr class="wave">
 </section>
 
-<section class="rv">
+<section class="rv" id="ch4">
   <div class="chap">CHAPTER 4</div>
   <h2>エンジンを切ると、<br>静けさが聞こえる。</h2>
   <p>落ち葉の積もった林道に車を停めて、エンジンを切る。音のない時間というのも、音楽の一部なのだと思う。</p>
@@ -163,7 +169,7 @@ footer a{color:var(--sea)}
   <hr class="wave">
 </section>
 
-<section class="rv">
+<section class="rv" id="ch5">
   <div class="chap">CHAPTER 5</div>
   <h2>たぶん、<br>サックスの低音のために。</h2>
   <p>週に何度か、黙々とバーベルを持ち上げる。理由はうまく説明できない。たぶんサックスの低音のためだ。</p>
@@ -171,7 +177,7 @@ footer a{color:var(--sea)}
   <hr class="wave">
 </section>
 
-<section class="rv">
+<section class="rv" id="ch6">
   <div class="chap">CHAPTER 6</div>
   <h2>スコアのことは、<br>あまり聞かないでほしい。</h2>
   <p>スコアのことはあまり聞かないでほしい。でも十八番ホールで夕日と富士山が並んで見えたとき、僕はたぶん、その日いちばんいいショットを打っていた。</p>
@@ -179,7 +185,7 @@ footer a{color:var(--sea)}
   <hr class="wave">
 </section>
 
-<section class="rv">
+<section class="rv" id="ch7">
   <div class="chap">CHAPTER 7</div>
   <h2>家族と、長いドライブ。</h2>
   <p>僕の家族は三人だ。妻と、もう独り立ちした息子。息子は今、ずいぶん遠い町で暮らしている。</p>
@@ -190,7 +196,7 @@ footer a{color:var(--sea)}
   <hr class="wave">
 </section>
 
-<section class="rv">
+<section class="rv" id="ch8">
   <div class="chap">CHAPTER 8</div>
   <h2>仕事も、たぶん<br>好奇心の延長だった。</h2>
   <p>大学で通信工学を学び、パイオニアに入社した。最初はレーザーディスクのICを設計し、次にインターネットに出会い、それから地図に夢中になった。地図サービスの「MapFan」、カーナビがクルマ同士でつながる「スマートループ」。気がつくと、二十八年が過ぎていた。</p>
@@ -204,7 +210,7 @@ footer a{color:var(--sea)}
   </ul>
 </section>
 
-<section class="rv">
+<section class="rv" id="now">
   <div class="now">
     <div class="chap">NOW</div>
     <h2>最近、気になっていること。</h2>
@@ -219,8 +225,18 @@ footer a{color:var(--sea)}
 </main>
 
 <footer>
+  <ul class="fnav">
+    <li><span>CH.1</span><a href="music/">音楽と楽器</a></li>
+    <li><span>CH.2</span><a href="#ch2">ヨット</a></li>
+    <li><span>CH.3</span><a href="hiking/">山歩き</a></li>
+    <li><span>CH.4</span><a href="cars/">クルマとドライブ</a></li>
+    <li><span>CH.5</span><a href="#ch5">ジム</a></li>
+    <li><span>CH.6</span><a href="#ch6">ゴルフ</a></li>
+    <li><span>CH.7</span><a href="travel/">家族と旅行</a></li>
+    <li><span>CH.8</span><a href="career.html">仕事と講演</a></li>
+    <li><span>NOW</span><a href="blog/">最近、気になっていること。</a></li>
+  </ul>
   <p>© 2026 Nakano Toshiaki</p>
-  <p><a href="career.html">仕事と講演（好奇心の地図）</a>　<a href="cars/">愛車遍歴</a>　<a href="travel/">旅行</a>　<a href="hiking/">山歩き</a></p>
 </footer>
 
 <script>
